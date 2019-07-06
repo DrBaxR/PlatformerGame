@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public float gravMult;
     public int numberOfJumps;
-    public int lives;
+    public int health;
     public bool isDead;
 
     public Transform groundCheck;
@@ -23,13 +23,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         numberJumps = 0;
+        health = 100;
     }
 
     private void FixedUpdate()
     {
         PlayerMovement();
         jump();
-        
     }
 
     private void PlayerMovement()
@@ -78,13 +78,20 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void Death()
-    {
-        lives = 0;
-    }
-
     public void SetTransform(Transform target)
     {
         transform.position = target.position;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+            isDead = true;
+    }
+
+    public void Kill()
+    {
+        isDead = true;
     }
 }

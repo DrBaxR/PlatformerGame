@@ -5,14 +5,8 @@ using UnityEngine;
 public class MovingConstraints : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] float maxValue;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] float maxValue = 1.0f;
+    
     void Update()
     {
         transform.position = new Vector3(target.position.x, transform.position.y,-10);
