@@ -1,71 +1,90 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jump;
     public float speed;
-    public bool isDead = false;
-    public GameObject effect;
-    public Text healthText;
-    public GameObject gameOverScreen;
+    public float jumpHeight;
+    public float gravMult;
+    public int numberOfJumps;
+    public int lives;
+    public bool isDead;
 
-    Vector2 targetPos;
-    float maxHeight;
-    float minHeight;
-    private int health = 3;
-    private Animator camAnim;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask whatIsGround;
+
+    private int numberJumps;
+    private bool grounded;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        targetPos = transform.position;
-        maxHeight = jump;
-        minHeight = -jump;
-
-        camAnim = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        numberJumps = 0;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight) 
-        {
-            camAnim.SetTrigger("shake");
-            Instantiate(effect, transform.position, Quaternion.identity);
-            targetPos = new Vector2(transform.position.x, transform.position.y + jump);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
-        {
-            camAnim.SetTrigger("shake");
-            Instantiate(effect, transform.position, Quaternion.identity);
-            targetPos = new Vector2(transform.position.x, transform.position.y - jump);
-        }
-
-        healthText.text = "HP: " + health;
-        checkDeath();
+        PlayerMovement();
+        jump();
+        
     }
 
-    public void takeDamage()
+    private void PlayerMovement()
     {
-        camAnim.SetTrigger("shake");
-        health--;
-        if(health == 0)
+        if (Input.GetKey(KeyCode.A))
         {
-            isDead = true;
+            rb.velocity += Vector2.left * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.velocity += Vector2.right * speed * Time.deltaTime;
         }
     }
 
-    void checkDeath()
+    private void jump()
     {
-        if (health <= 0)
+        bool ableJump;
+
+        grounded = Physics2D.OverlapCircle(new Vector2(groundCheck.position.x, groundCheck.position.y), groundCheckRadius, whatIsGround);
+
+        if (grounded == true)
         {
-            gameOverScreen.SetActive(true);
-            Destroy(gameObject);
+            numberJumps = 0;
         }
+
+        if (numberJumps <= numberOfJumps - 1)
+        {
+            ableJump = true;
+        }
+        else
+        {
+            ableJump = false;
+        }
+
+        if (ableJump && Input.GetKeyDown(KeyCode.Space))
+        {
+            numberJumps++;
+
+            rb.velocity =  new Vector2(rb.velocity.x, jumpHeight);
+        }
+
+        if(rb.velocity.y < 0)
+        {
+            rb.velocity += new Vector2(0, Physics2D.gravity.y * gravMult * Time.deltaTime);
+        }
+        
+    }
+
+    public void Death()
+    {
+        lives = 0;
+    }
+
+    public void SetTransform(Transform target)
+    {
+        transform.position = target.position;
     }
 }
