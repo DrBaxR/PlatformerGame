@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8228094578421698073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground Detection
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8228094578421698072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0.7, y: -0.628, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8228094579462039362}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8228094579462039364}
   - component: {fileID: 8228094579462039363}
   - component: {fileID: 8228094579462039365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,3 +174,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   distance: 1
+  damageAmount: 50
+  damageCooldown: 1

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public float gravMult;
     public int numberOfJumps;
-    public int health;
+    public int maxHealth;
     public bool isDead;
 
     public Transform groundCheck;
@@ -18,12 +18,13 @@ public class PlayerController : MonoBehaviour
     private int numberJumps;
     private bool grounded;
     private Rigidbody2D rb;
+    private int health;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         numberJumps = 0;
-        health = 100;
+        health = maxHealth;
     }
 
     private void FixedUpdate()
@@ -93,5 +94,10 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         isDead = true;
+    }
+
+    public float getHealthRatio()
+    {
+        return (float)health / maxHealth;
     }
 }
