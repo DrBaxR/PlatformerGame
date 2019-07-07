@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private Rigidbody2D rb;
     private int health;
+    private bool movesRight;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         PlayerMovement();
         jump();
@@ -38,10 +39,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rb.velocity += Vector2.left * speed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, -180, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity += Vector2.right * speed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
@@ -99,5 +102,10 @@ public class PlayerController : MonoBehaviour
     public float getHealthRatio()
     {
         return (float)health / maxHealth;
+    }
+
+    public void push(Vector2 force)
+    {
+        rb.AddForce(force);
     }
 }

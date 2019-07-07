@@ -8,6 +8,7 @@ public class EnemyController1 : MonoBehaviour
     public float distance;
     public int damageAmount;
     public float damageCooldown;
+    public float pushPower;
 
     private float offset;
     private float nextDamage;
@@ -24,7 +25,7 @@ public class EnemyController1 : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = transform.right * speed * Time.deltaTime;
+        rb.velocity = transform.right * speed * Time.deltaTime + new Vector3(0, rb.velocity.y, 0);
         ChangeDirection();
     }
 
@@ -35,23 +36,17 @@ public class EnemyController1 : MonoBehaviour
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetect.transform.position, Vector2.down, distance);
         if (groundInfo.collider == false)
         {
-            
-            
-                if (movingRight == true)
-                {
-                    movingRight = false;
-                    transform.eulerAngles = new Vector3(0, -180, 0);
-                }
-                else
-                {
-                    movingRight = true;
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-            
+            if (movingRight == true)
+            {
+                movingRight = false;
+                transform.eulerAngles = new Vector3(0, -180, 0);
+            }
+            else
+            {
+                movingRight = true;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
-       
-
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -62,6 +57,10 @@ public class EnemyController1 : MonoBehaviour
             player = collision.gameObject.GetComponent<PlayerController>();
             player.TakeDamage(damageAmount);
             nextDamage = Time.time + damageCooldown;
+
+            Vector2 pushForce = player.transform.position - transform.position + Vector3.up;
+            pushForce.Normalize();
+            player.push(pushForce * pushPower * 100);
         }
     }
 }
