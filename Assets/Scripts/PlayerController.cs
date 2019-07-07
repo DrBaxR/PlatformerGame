@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public int numberOfJumps;
     public int maxHealth;
     public bool isDead;
+    public bool isSpeedBuffed;
+    public GameManager gm;
+    public bool isBuffed;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -20,18 +23,25 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private int health;
     private bool movesRight;
+    private float speedRunOut;
+    private float initSpeed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         numberJumps = 0;
+        initSpeed = speed;
         health = maxHealth;
+        speedRunOut = 0.0f;
+        isSpeedBuffed = false;
+        isBuffed = false;
     }
 
     private void Update()
     {
         PlayerMovement();
-        jump();
+        Jump();
+        BuffRunOut();
     }
 
     private void PlayerMovement()
@@ -48,7 +58,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void jump()
+    private void BuffRunOut()
+    {
+        if (Time.time >= speedRunOut)
+        {
+            speed = initSpeed;
+            isSpeedBuffed = false;
+            isBuffed = false;
+        }
+    }
+
+    private void Jump()
     {
         bool ableJump;
 
@@ -107,5 +127,14 @@ public class PlayerController : MonoBehaviour
     public void push(Vector2 force)
     {
         rb.AddForce(force);
+    }
+
+    public void BuffSpeed(float mult, float duration)
+    {
+        speedRunOut = Time.time + duration;
+        speed *= mult;
+        isSpeedBuffed = true;
+        isBuffed = true;
+        gm.EnableBuff(duration);
     }
 }
