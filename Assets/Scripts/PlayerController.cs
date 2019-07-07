@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public bool isSpeedBuffed;
     public GameManager gm;
     public bool isBuffed;
+    public float attackDamage;
+    public bool isAttackBuffed;
+    
+    
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -24,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private int health;
     private bool movesRight;
     private float speedRunOut;
+    private float damageRunOut;
+    private float initDamage;
     private float initSpeed;
 
     private void Start()
@@ -35,6 +41,8 @@ public class PlayerController : MonoBehaviour
         speedRunOut = 0.0f;
         isSpeedBuffed = false;
         isBuffed = false;
+        initDamage = attackDamage;
+        isAttackBuffed = false;
     }
 
     private void Update()
@@ -64,6 +72,12 @@ public class PlayerController : MonoBehaviour
         {
             speed = initSpeed;
             isSpeedBuffed = false;
+            isBuffed = false; 
+        }
+        if(Time.time >= damageRunOut)
+        {
+            attackDamage = initDamage;
+            isAttackBuffed = false;
             isBuffed = false;
         }
     }
@@ -134,6 +148,15 @@ public class PlayerController : MonoBehaviour
         speedRunOut = Time.time + duration;
         speed *= mult;
         isSpeedBuffed = true;
+        isBuffed = true;
+        gm.EnableBuff(duration);
+    }
+
+    public void BuffAttack(float mult,float duration)
+    {
+        damageRunOut = Time.time + duration;
+        attackDamage *= mult;
+        isAttackBuffed = true;
         isBuffed = true;
         gm.EnableBuff(duration);
     }

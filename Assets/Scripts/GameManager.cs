@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Slider healthSlider;
     public Image[] buff;
     public Sprite speedSprite;
+    public Sprite attackSprite;
 
     private float[] disableTimes;
     //private int buffIndex = 0;
@@ -40,10 +41,10 @@ public class GameManager : MonoBehaviour
     {
         for(int i = 0; i < 3; ++i)
         {
-            if(disableTimes[i] <= Time.time && player.isBuffed)
+            if(disableTimes[i] <= Time.time)
             {
-                if(disableTimes[i]!=0)
-                print(disableTimes[i]);
+                
+                
                 buff[i].enabled = false;
                 disableTimes[i] = 0.0f;
                 
@@ -59,11 +60,11 @@ public class GameManager : MonoBehaviour
     public void EnableBuff(float duration)
     {
         int i;
-        if(player.isSpeedBuffed)
+        if (player.isSpeedBuffed)
         {
-            for(i=0;i<buff.Length;i++)
+            for (i = 0; i < buff.Length; i++)
             {
-                if(buff[i].enabled==false)
+                if (buff[i].enabled == false)
                 {
                     break;
                 }
@@ -73,11 +74,26 @@ public class GameManager : MonoBehaviour
                 buff[i].sprite = speedSprite;
                 buff[i].enabled = true;
                 disableTimes[i] = Time.time + duration;
-                
+
             }
         }
-        
+        if (player.isAttackBuffed)
+        {
+            for (i = 0; i < buff.Length; i++)
+            {
+                if (buff[i].enabled == false)
+                {
+                    break;
+                }
+            }
+            if (i < buff.Length)
+            {
+                buff[i].sprite = attackSprite;
+                buff[i].enabled = true;
+                disableTimes[i] = Time.time + duration;
+            }
+
+        }
+
     }
-
-
 }
