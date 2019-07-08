@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{ 
     public bool gameOver = false;
     public PlayerController player;
     public Slider healthSlider;
@@ -95,5 +95,24 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+
+    public IEnumerator AddBuff(float duration, Sprite buffSprite)
+    {
+        int i;
+        for (i = 0; i < buff.Length; ++i)
+        {
+            if (buff[i].enabled == false)
+                break;
+        }
+
+        if (i < buff.Length)
+        {
+            buff[i].sprite = buffSprite;
+            buff[i].enabled = true;
+            disableTimes[i] = Time.time + duration;
+            yield return new WaitForSeconds(duration);
+            buff[i].enabled = false;
+        }
     }
 }

@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController1 : MonoBehaviour
+public class EnemyController1 : Enemy
 {
-    public float speed;
+    
     public float distance;
-    public int damageAmount;
-    public float damageCooldown;
     public float pushPower;
-
-    private float offset;
     private float nextDamage;
 
     
@@ -27,6 +23,8 @@ public class EnemyController1 : MonoBehaviour
     {
         rb.velocity = transform.right * speed * Time.deltaTime + new Vector3(0, rb.velocity.y, 0);
         ChangeDirection();
+        CheckforDeath();
+        
     }
 
     private void ChangeDirection()
@@ -63,4 +61,5 @@ public class EnemyController1 : MonoBehaviour
             player.push(pushForce * pushPower * 100);
         }
     }
+    
 }

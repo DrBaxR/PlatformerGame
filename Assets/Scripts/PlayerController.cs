@@ -8,15 +8,16 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public float gravMult;
     public int numberOfJumps;
-    public int maxHealth;
+    public float maxHealth;
     public bool isDead;
     public bool isSpeedBuffed;
     public GameManager gm;
     public bool isBuffed;
     public float attackDamage;
     public bool isAttackBuffed;
-    
-    
+    public float sprintSpeed;
+    public float teleportCooldown;
+
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -25,12 +26,16 @@ public class PlayerController : MonoBehaviour
     private int numberJumps;
     private bool grounded;
     private Rigidbody2D rb;
-    private int health;
+    private float health;
     private bool movesRight;
     private float speedRunOut;
     private float damageRunOut;
+    private float healthRunOut;
     private float initDamage;
     private float initSpeed;
+    private float initSprintSpeed;
+    private float nextTeleport;
+    private float initMaxHealth;
 
     private void Start()
     {
@@ -38,11 +43,13 @@ public class PlayerController : MonoBehaviour
         numberJumps = 0;
         initSpeed = speed;
         health = maxHealth;
+        initMaxHealth = maxHealth;
         speedRunOut = 0.0f;
         isSpeedBuffed = false;
         isBuffed = false;
         initDamage = attackDamage;
         isAttackBuffed = false;
+        initSprintSpeed = sprintSpeed;
     }
 
     private void Update()
@@ -50,20 +57,40 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         Jump();
         BuffRunOut();
+        Teleport();
     }
 
     private void PlayerMovement()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity += Vector2.left * speed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, -180, 0);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.velocity += Vector2.left * sprintSpeed * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, -180, 0);
+            }
+            else
+            {
+                rb.velocity += Vector2.left * speed * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, -180, 0);
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity += Vector2.right * speed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.velocity += Vector2.right * sprintSpeed * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                rb.velocity += Vector2.right * speed * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+
         }
+
+
     }
 
     private void BuffRunOut()
@@ -71,10 +98,11 @@ public class PlayerController : MonoBehaviour
         if (Time.time >= speedRunOut)
         {
             speed = initSpeed;
+            sprintSpeed = initSprintSpeed;
             isSpeedBuffed = false;
-            isBuffed = false; 
+            isBuffed = false;
         }
-        if(Time.time >= damageRunOut)
+        if (Time.time >= damageRunOut)
         {
             attackDamage = initDamage;
             isAttackBuffed = false;
@@ -106,14 +134,14 @@ public class PlayerController : MonoBehaviour
         {
             numberJumps++;
 
-            rb.velocity =  new Vector2(rb.velocity.x, jumpHeight);
+            rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
 
-        if(rb.velocity.y < 0)
+        if (rb.velocity.y < 0)
         {
             rb.velocity += new Vector2(0, Physics2D.gravity.y * gravMult * Time.deltaTime);
         }
-        
+
     }
 
     public void SetTransform(Transform target)
@@ -143,21 +171,39 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(force);
     }
 
-    public void BuffSpeed(float mult, float duration)
+    public void BuffSpeed(float mult, float duration, Sprite speedSprite)
     {
         speedRunOut = Time.time + duration;
         speed *= mult;
+        sprintSpeed *= mult;
         isSpeedBuffed = true;
         isBuffed = true;
-        gm.EnableBuff(duration);
+        StartCoroutine(gm.AddBuff(duration, speedSprite));
     }
 
-    public void BuffAttack(float mult,float duration)
+    public void BuffAttack(float mult, float duration, Sprite attackSprite)
     {
         damageRunOut = Time.time + duration;
         attackDamage *= mult;
         isAttackBuffed = true;
         isBuffed = true;
-        gm.EnableBuff(duration);
+        StartCoroutine(gm.AddBuff(duration, attackSprite));
     }
+
+    public void Teleport()
+    {
+        Camera cam = Camera.main;
+        float height = 2f * cam.orthographicSize;
+        float width = height * cam.aspect;
+        
+        
+        if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport)
+        {
+            Vector2 teleportDirection = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+            transform.position = teleportDirection;
+            nextTeleport = Time.time + teleportCooldown;
+
+        }
+    }
+
 }
