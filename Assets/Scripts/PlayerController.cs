@@ -4,38 +4,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //public variables
     public float speed;
     public float jumpHeight;
     public float gravMult;
     public int numberOfJumps;
-    public float maxHealth;
-    public bool isDead;
-    public bool isSpeedBuffed;
-    public GameManager gm;
-    public bool isBuffed;
-    public float attackDamage;
-    public bool isAttackBuffed;
+    public int maxHealth;
     public float sprintSpeed;
     public float teleportCooldown;
-
-
+    public float attackDamage;
     public Transform groundCheck;
-    public float groundCheckRadius;
     public LayerMask whatIsGround;
+    public GameManager gm;
 
+    //hidden in the inspector
+    [HideInInspector]
+    public bool isDead;
+    [HideInInspector]
+    public bool isSpeedBuffed;
+    [HideInInspector]
+    public bool isBuffed;
+    [HideInInspector]
+    public bool isAttackBuffed;
+    [HideInInspector]
+    public float groundCheckRadius = 0.1f;
+
+    //private varaibles
     private int numberJumps;
     private bool grounded;
-    private Rigidbody2D rb;
-    private float health;
     private bool movesRight;
     private float speedRunOut;
     private float damageRunOut;
-    private float healthRunOut;
     private float initDamage;
     private float initSpeed;
     private float initSprintSpeed;
     private float nextTeleport;
     private float initMaxHealth;
+    private int health;
+    private Rigidbody2D rb;
 
     private void Start()
     {
