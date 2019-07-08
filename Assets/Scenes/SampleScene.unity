@@ -227,7 +227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.025009155, y: 0}
+  m_AnchoredPosition: {x: -0.025024414, y: 0}
   m_SizeDelta: {x: -0.049988, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85111409
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 405209538}
   - component: {fileID: 405209537}
   m_Layer: 5
-  m_Name: Buff Icon 1 (1)
+  m_Name: Buff Icon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,10 +299,10 @@ RectTransform:
   m_Father: {fileID: 797995334}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -505, y: 258}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 140, y: -90}
+  m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &405209537
 MonoBehaviour:
@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 1163207865}
   - component: {fileID: 1163207864}
   - component: {fileID: 1163207868}
+  - component: {fileID: 1163207869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1043,6 +1044,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.61, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &1163207869
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163207863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ca9b43fe07d18c4db4962efdcbfa188, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1206030906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,10 +1095,10 @@ RectTransform:
   m_Father: {fileID: 797995334}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -590.5, y: 258}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -90}
+  m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206030908
 MonoBehaviour:
@@ -1365,10 +1385,10 @@ RectTransform:
   m_Father: {fileID: 797995334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -451, y: 327}
-  m_SizeDelta: {x: -940.9, y: -665.8}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 190, y: -33}
+  m_SizeDelta: {x: 339.09998, y: 54.200012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1776530917
 SpriteRenderer:
@@ -1488,7 +1508,7 @@ GameObject:
   - component: {fileID: 1844958635}
   - component: {fileID: 1844958634}
   m_Layer: 5
-  m_Name: Buff Icon 1 (2)
+  m_Name: Buff Icon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,10 +1528,10 @@ RectTransform:
   m_Father: {fileID: 797995334}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -421, y: 258}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230, y: -90}
+  m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844958634
 MonoBehaviour:
