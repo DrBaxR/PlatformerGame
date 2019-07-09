@@ -10,9 +10,15 @@ public class PlayerController : MonoBehaviour
     public float gravMult;
     public int numberOfJumps;
     public int maxHealth;
+    public int health;
     public float sprintSpeed;
     public float teleportCooldown;
     public float attackDamage;
+    public float mana;
+    public float maxMana;
+    public float manaCost;
+    public float manaRegen;
+    public float manaRegenCooldown;
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public GameManager gm;
@@ -30,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.1f;
 
     //private varaibles
+    private float nextManaRegen;
     private int numberJumps;
     private bool grounded;
     private bool movesRight;
@@ -40,7 +47,6 @@ public class PlayerController : MonoBehaviour
     private float initSprintSpeed;
     private float nextTeleport;
     private float initMaxHealth;
-    private int health;
     private Rigidbody2D rb;
 
     private void Start()
@@ -56,6 +62,8 @@ public class PlayerController : MonoBehaviour
         initDamage = attackDamage;
         isAttackBuffed = false;
         initSprintSpeed = sprintSpeed;
+        mana = maxMana;
+        nextManaRegen = 0;
     }
 
     private void Update()
@@ -64,6 +72,7 @@ public class PlayerController : MonoBehaviour
         Jump();
         BuffRunOut();
         Teleport();
+        RestoreMana();
     }
 
     private void PlayerMovement()
@@ -171,6 +180,10 @@ public class PlayerController : MonoBehaviour
     {
         return (float)health / maxHealth;
     }
+    public float getManaRatio()
+    {
+        return (float)mana / maxMana;
+    }
 
     public void push(Vector2 force)
     {
@@ -203,13 +216,26 @@ public class PlayerController : MonoBehaviour
         float width = height * cam.aspect;
         
         
-        if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport)
+        if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport && mana >= manaCost)
         {
             Vector2 teleportDirection = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
             transform.position = teleportDirection;
+            mana -= manaCost;
+            nextManaRegen = Time.time + manaRegenCooldown;
             nextTeleport = Time.time + teleportCooldown;
 
         }
+    }
+
+    public void RestoreMana()
+    {
+        
+        if(mana<maxMana && Time.time > nextManaRegen)
+        {
+            mana += manaRegen;
+            nextManaRegen = Time.time + manaRegenCooldown;
+        }
+        mana = Mathf.Clamp(mana, 0, maxMana); 
     }
 
 }

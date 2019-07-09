@@ -11,8 +11,11 @@ public class HealthPickup : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-            player.TakeDamage(-heal);
-            Destroy(gameObject);
+            if (player.health + heal <= player.maxHealth)
+            {
+                player.TakeDamage(-heal);
+                Destroy(gameObject);
+            }
         }
     }
 }
