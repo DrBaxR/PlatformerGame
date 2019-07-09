@@ -10,11 +10,10 @@ public class PlayerController : MonoBehaviour
     public float gravMult;
     public int numberOfJumps;
     public int maxHealth;
-    public int health;
     public float sprintSpeed;
     public float teleportCooldown;
     public float attackDamage;
-    public float mana;
+    
     public float maxMana;
     public float manaCost;
     public float manaRegen;
@@ -24,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public GameManager gm;
 
     //hidden in the inspector
+    [HideInInspector]
+    public int health;
+    [HideInInspector]
+    public float mana;
     [HideInInspector]
     public bool isDead;
     [HideInInspector]
