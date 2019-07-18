@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private float nextTeleport;
     private float initMaxHealth;
     private Rigidbody2D rb;
+    private Animator playerAnimator;
 
     private void Start()
     {
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
         initSprintSpeed = sprintSpeed;
         mana = maxMana;
         nextManaRegen = 0;
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -92,8 +94,13 @@ public class PlayerController : MonoBehaviour
                 rb.velocity += Vector2.left * speed * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, -180, 0);
             }
+
+            if (playerAnimator.GetBool("isJumping") == false)
+                playerAnimator.SetBool("isRunning", true);
+            else
+                playerAnimator.SetBool("isRunning", false);
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -106,9 +113,15 @@ public class PlayerController : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
+            if(playerAnimator.GetBool("isJumping") == false)
+                playerAnimator.SetBool("isRunning", true);
+            else
+                playerAnimator.SetBool("isRunning", false);
         }
-
-
+        else
+        {
+            playerAnimator.SetBool("isRunning", false);
+        }
     }
 
     private void BuffRunOut()
@@ -136,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
         if (grounded == true)
         {
+            playerAnimator.SetBool("isJumping", false);
             numberJumps = 0;
         }
 
@@ -150,6 +164,9 @@ public class PlayerController : MonoBehaviour
 
         if (ableJump && Input.GetKeyDown(KeyCode.Space))
         {
+            playerAnimator.SetBool("isJumping", true);
+            playerAnimator.SetBool("isRunning", false);
+            playerAnimator.SetTrigger("doubleJump");
             numberJumps++;
 
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
@@ -198,8 +215,8 @@ public class PlayerController : MonoBehaviour
         speedRunOut = Time.time + duration;
         speed *= mult;
         sprintSpeed *= mult;
-        isSpeedBuffed = true;
-        isBuffed = true;
+        //isSpeedBuffed = true;
+        //isBuffed = true;
         StartCoroutine(gm.AddBuff(duration, speedSprite));
     }
 
@@ -215,9 +232,6 @@ public class PlayerController : MonoBehaviour
     public void Teleport()
     {
         Camera cam = Camera.main;
-        float height = 2f * cam.orthographicSize;
-        float width = height * cam.aspect;
-        
         
         if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport && mana >= manaCost)
         {
@@ -226,19 +240,16 @@ public class PlayerController : MonoBehaviour
             mana -= manaCost;
             nextManaRegen = Time.time + manaRegenCooldown;
             nextTeleport = Time.time + teleportCooldown;
-
         }
     }
 
     public void RestoreMana()
     {
-        
-        if(mana<maxMana && Time.time > nextManaRegen)
+        if(mana < maxMana && Time.time > nextManaRegen)
         {
             mana += manaRegen;
             nextManaRegen = Time.time + manaRegenCooldown;
         }
         mana = Mathf.Clamp(mana, 0, maxMana); 
     }
-
 }

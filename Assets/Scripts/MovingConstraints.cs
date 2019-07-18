@@ -5,14 +5,20 @@ using UnityEngine;
 public class MovingConstraints : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] float maxValue = 1.0f;
+    public float speed;
+    public float groundY = 1.0f;
     
     void Update()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y,-10);
-        if(target.position.y > maxValue)
+        Vector2 targetPos = new Vector2(target.position.x, target.position.y);
+
+        //smooth move on x axis
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos.x, speed), transform.position.y, -10);
+
+        if(target.position.y > groundY)
         {
-            transform.position = new Vector3(target.position.x, target.position.y,-10);
+            //smooth move on y axis
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos.y, speed), -10);
         }
     }
 }

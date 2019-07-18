@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Text manaText;
     public Text scoreText;
 
-    public int score=0;
+    public int score = 0;
     
     private void Update()
     {
