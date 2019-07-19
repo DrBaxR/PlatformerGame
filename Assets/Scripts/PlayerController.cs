@@ -215,8 +215,6 @@ public class PlayerController : MonoBehaviour
         speedRunOut = Time.time + duration;
         speed *= mult;
         sprintSpeed *= mult;
-        //isSpeedBuffed = true;
-        //isBuffed = true;
         StartCoroutine(gm.AddBuff(duration, speedSprite));
     }
 
