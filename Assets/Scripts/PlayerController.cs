@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     public bool isAttackBuffed;
     [HideInInspector]
     public float groundCheckRadius = 0.1f;
+    [HideInInspector]
+    public float maxDamage;
 
     //private varaibles
     private float nextManaRegen;
@@ -64,15 +66,18 @@ public class PlayerController : MonoBehaviour
         isSpeedBuffed = false;
         isBuffed = false;
         initDamage = attackDamage;
+        maxDamage = attackDamage;
         isAttackBuffed = false;
         initSprintSpeed = sprintSpeed;
         mana = maxMana;
         nextManaRegen = 0;
         playerAnimator = GetComponent<Animator>();
+        
     }
 
     private void Update()
     {
+        
         PlayerMovement();
         Jump();
         BuffRunOut();
@@ -135,7 +140,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Time.time >= damageRunOut)
         {
-            attackDamage = initDamage;
+            attackDamage = maxDamage;
             isAttackBuffed = false;
             isBuffed = false;
         }

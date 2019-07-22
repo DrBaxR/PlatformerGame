@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public Text manaText;
     public Text scoreText;
 
+    public GameObject tooltip;
+
+    public Text healthStat;
+    public Text attackDamageStat;
     public int score = 0;
     
     private void Update()
@@ -37,7 +41,9 @@ public class GameManager : MonoBehaviour
         manaSlider.value = player.getManaRatio();
         manaText.text = player.mana + "/" + player.maxMana;
         scoreText.text = "Score: " + score;
-    }
+        healthStat.text = "Stamina: " + player.maxHealth;
+        attackDamageStat.text = "Attack power: " + player.attackDamage;
+     }
 
     public IEnumerator AddBuff(float duration, Sprite buffSprite)
     {
