@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7322090367212538853}
   - component: {fileID: 7322090367212538854}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Attack Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -849, y: 186}
+  m_AnchoredPosition: {x: -836, y: 27.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7322090367212538853
@@ -683,7 +683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -840.85, y: 89.41}
+  m_AnchoredPosition: {x: -840.85, y: 218}
   m_SizeDelta: {x: 178.31, y: 33.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7322090367847082366
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score Placeholder
+  m_Text: 'Score: 0'
 --- !u!1 &7322090368433572481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -848, y: -3}
+  m_AnchoredPosition: {x: -848, y: 110}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7322090368433572494
