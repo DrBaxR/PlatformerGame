@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed;
     public float teleportCooldown;
     public float attackDamage;
-    
+    public int numberJumps;
+
     public float maxMana;
     public float manaCost;
     public float manaRegen;
@@ -39,10 +40,11 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     [HideInInspector]
     public float maxDamage;
+    [HideInInspector]
+    public Animator playerAnimator;
 
     //private varaibles
     private float nextManaRegen;
-    private int numberJumps;
     private bool grounded;
     private bool movesRight;
     private float speedRunOut;
@@ -53,7 +55,6 @@ public class PlayerController : MonoBehaviour
     private float nextTeleport;
     private float initMaxHealth;
     private Rigidbody2D rb;
-    private Animator playerAnimator;
 
     private void Start()
     {

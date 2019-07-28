@@ -23601,11 +23601,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 7322090368388899515, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Score: 0'
-      objectReference: {fileID: 0}
     - target: {fileID: 7322090368840335613, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23680,31 +23675,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090367212538840, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_Name
-      value: Attack Damage
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090367212538855, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -836
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090367212538855, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 27.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090367847082352, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 218
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090368433572480, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c2729fb239b14a4b9291f2224603999, type: 3}

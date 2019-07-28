@@ -57,6 +57,7 @@ MonoBehaviour:
   sprintSpeed: 100
   teleportCooldown: 5
   attackDamage: 50
+  numberJumps: 0
   maxMana: 100
   manaCost: 25
   manaRegen: 5
@@ -74,6 +75,7 @@ MonoBehaviour:
   isAttackBuffed: 0
   groundCheckRadius: 0.05
   maxDamage: 0
+  playerAnimator: {fileID: 0}
 --- !u!95 &8673142563314292847
 Animator:
   serializedVersion: 3
@@ -129,7 +131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b80b9bbf8bdc2d4449c6c3b55273a1fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
