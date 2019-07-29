@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   knockbackStrength: 20
+  bulletParticleVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
 --- !u!61 &127763275226264443
 BoxCollider2D:
   m_ObjectHideFlags: 0

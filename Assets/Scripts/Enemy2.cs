@@ -20,7 +20,7 @@ public class Enemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeBtwShots <= 0 && Vector2.Distance(transform.position, player.transform.position) < 40)
+        if (timeBtwShots <= 0 && Vector2.Distance(transform.position, player.transform.position) < 20)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;

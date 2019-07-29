@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] 
     public float knockbackStrength;
 
+    [SerializeField] GameObject bulletParticleVFX;
+
     private Rigidbody2D rb;
 
     private Transform player;
@@ -34,6 +36,7 @@ public class Bullet : MonoBehaviour
     }
     void DestroyProjectile()
     {
+        TriggerParticleVFX();
         Destroy(gameObject);
     }
 
@@ -52,6 +55,11 @@ public class Bullet : MonoBehaviour
             Vector2 direction = (transform.position - collision.transform.position+Vector3.up).normalized;
             rb.AddForce(-direction*knockbackStrength,ForceMode2D.Impulse);
             DestroyProjectile();
+            
         }
+    }
+    private void TriggerParticleVFX()
+    {
+         Instantiate(bulletParticleVFX, transform.position, Quaternion.identity);
     }
 }
