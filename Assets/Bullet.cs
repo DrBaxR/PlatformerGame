@@ -7,6 +7,9 @@ public class Bullet : MonoBehaviour
 
     public float moveSpeed;
 
+    [SerializeField] 
+    public float knockbackStrength;
+
     private Rigidbody2D rb;
 
     private Transform player;
@@ -23,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-
+        //target = new Vector2(player.position.x, player.position.y);
         transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         if (transform.position.x == target.x && transform.position.y == target.y)
             DestroyProjectile();
@@ -34,10 +37,20 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
+            
+        }
+    }*/
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            Vector2 direction = (transform.position - collision.transform.position+Vector3.up).normalized;
+            rb.AddForce(-direction*knockbackStrength,ForceMode2D.Impulse);
             DestroyProjectile();
         }
     }

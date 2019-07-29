@@ -369,6 +369,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1250282203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8228094579462039365, guid: 62561fbb4255a744f97ce500becba285,
+    type: 3}
+  m_PrefabInstance: {fileID: 1660601386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250282201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26785ba146a4ac14eb2c92572466e80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476560049
 GameObject:
   m_ObjectHideFlags: 0
@@ -23540,6 +23552,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc160d89b2c0aec4395a267baf694b95, type: 3}
+--- !u!1001 &2155376231070753103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1946067851853733093, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_Name
+      value: permanent damage boosterv2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143551687465372225, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123358399901734200, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: increaseDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123358399901734200, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1250282203}
+    - target: {fileID: 6838699636531624681, guid: e926c99f0e8be0b44ad376ea08cb0aac,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e926c99f0e8be0b44ad376ea08cb0aac, type: 3}
 --- !u!1001 &2371649604402526609
 PrefabInstance:
   m_ObjectHideFlags: 0
