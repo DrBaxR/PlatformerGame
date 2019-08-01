@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
         mana = maxMana;
         nextManaRegen = 0;
         playerAnimator = GetComponent<Animator>();
-        
+
+        gm = FindObjectOfType<GameManager>();
     }
 
     private void Update()
