@@ -4,28 +4,40 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// !!!EXTREMELY IMPORTANT!!!
+/// 
+/// There must exist an instance of the game manager game object at all times when a level is played
+/// Recommendation: create an instance of it in the main menu
+/// </summary>
+
 public class GameManager : MonoBehaviour
 { 
     public bool gameOver = false;
-    public PlayerController player;
-    public Slider healthSlider;
-    public Slider manaSlider;
-    public Image[] buff;
-    public Sprite speedSprite;
-    public Sprite attackSprite;
-    public Text healthText;
-    public Text manaText;
-    public Text scoreText;
+    public static int score;
 
-    public GameObject tooltip;
+    [HideInInspector] public PlayerController player;
+    [HideInInspector] public Slider healthSlider;
+    [HideInInspector] public Slider manaSlider;
+    [HideInInspector] public Image[] buff;
+    [HideInInspector] public Text healthText;
+    [HideInInspector] public Text manaText;
+    [HideInInspector] public Text scoreText;
+    [HideInInspector] public Text healthStat;
+    [HideInInspector] public Text attackDamageStat;
 
-    public Text healthStat;
-    public Text attackDamageStat;
-    public int score = 0;
-    
+    private void Awake()
+    {
+        PlayerPrefs.SetInt("score", 0);
+    }
+
+    private void Start()
+    {
+        Initialize();
+    }
+
     private void Update()
     {
-        
         if(player.isDead)
         {   
             SceneManager.LoadScene("Game Over");
@@ -61,5 +73,35 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(duration);
             buff[i].enabled = false;
         }
+    }
+
+    public void Initialize()
+    {
+        //initializes all the objects
+        //player
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        //UI
+        //!!!ORDER IN HIERARCHY IS IMPORTANT AS FUCK!!!
+        GameObject ui = GameObject.FindGameObjectWithTag("UI").transform.GetChild(1).gameObject; //canvas = 1 in UI
+        healthSlider = ui.transform.GetChild(0).GetComponent<Slider>();                          //health slider = 0 in canvas
+        manaSlider = ui.transform.GetChild(1).GetComponent<Slider>();                            //mana slider = 1 in canvas
+        healthText = ui.transform.GetChild(2).GetComponent<Text>();                              //health text = 2 in canvas
+        manaText = ui.transform.GetChild(3).GetComponent<Text>();                                //mana text = 3 in canvas
+        scoreText = ui.transform.GetChild(4).GetComponent<Text>();                               //score text = 4 in canvas
+        GameObject icons = ui.transform.GetChild(5).gameObject;                                  //buffs = 5 in canvas
+        buff[0] = icons.transform.GetChild(0).GetComponent<Image>();
+        buff[1] = icons.transform.GetChild(1).GetComponent<Image>();
+        buff[2] = icons.transform.GetChild(2).GetComponent<Image>();
+        healthStat = ui.transform.GetChild(6).GetComponent<Text>();                              //health stat = 6 in canvas
+        attackDamageStat = ui.transform.GetChild(7).GetComponent<Text>();                        //attack damage stat = 7 in canvas
+        
+    }
+
+    public static void IncrementScore(int val)
+    {
+        score = PlayerPrefs.GetInt("score");
+        score += val;
+        PlayerPrefs.SetInt("score", score);
     }
 }

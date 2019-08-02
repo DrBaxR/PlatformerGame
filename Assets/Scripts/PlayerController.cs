@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
         nextManaRegen = 0;
         playerAnimator = GetComponent<Animator>();
 
-        gm = FindObjectOfType<GameManager>();
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gm.Initialize();
     }
 
     private void Update()

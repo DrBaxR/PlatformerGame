@@ -11,6 +11,7 @@ public class NextLevel : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            PlayerPrefs.SetInt("score", GameManager.score);
             SceneManager.LoadScene(nextLevel);
         }
     }
