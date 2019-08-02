@@ -26798,6 +26798,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8118058, y: 24.462154}
   m_EdgeRadius: 0
+--- !u!1 &1448377839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448377840}
+  m_Layer: 0
+  m_Name: Ground Detection Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448377840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448377839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.86, y: -0.475, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1974177739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476560049
 GameObject:
   m_ObjectHideFlags: 0
@@ -49444,6 +49474,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1589278592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589278593}
+  m_Layer: 0
+  m_Name: Ground Detection Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589278593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589278592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.86, y: -0.475, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1974177739}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1594483295 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7322090368591424280, guid: 1c2729fb239b14a4b9291f2224603999,
@@ -49807,6 +49867,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7332058693668970685, guid: 02b92e14690e7c44b84879c8e123874b, type: 3}
+  speed: 10
+  stoppingDistance: 30
+  retreatDistance: 2
+  distance: 2
+  groundDetectionRight: {fileID: 1448377840}
+  groundDetectionLeft: {fileID: 1589278593}
   startTimeBtwShots: 2
 --- !u!212 &1974177738
 SpriteRenderer:
@@ -49864,9 +49930,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974177736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.189285, y: -6.4631586, z: 31.465652}
+  m_LocalPosition: {x: 19.189285, y: -6.8, z: 31.465652}
   m_LocalScale: {x: 1, y: 2.742624, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1448377840}
+  - {fileID: 1589278593}
   m_Father: {fileID: 1311225142}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
