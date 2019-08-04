@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FallCollider : MonoBehaviour
 {
-    public PlayerController player;
-    public Transform levelStart;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.Kill();
+        if(collision.tag == "Player")
+        {
+            PlayerController player = collision.GetComponent<PlayerController>();
+            player.Kill();
+        }
     }
 }

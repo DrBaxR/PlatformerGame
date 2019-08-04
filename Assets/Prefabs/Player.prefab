@@ -55,7 +55,7 @@ MonoBehaviour:
   numberOfJumps: 2
   maxHealth: 100
   sprintSpeed: 100
-  teleportCooldown: 5
+  teleportCooldown: 0
   attackDamage: 50
   numberJumps: 0
   maxMana: 100

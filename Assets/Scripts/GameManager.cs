@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().name == "Game Over")
+        {
+            gameObject.SetActive(false);
+        }
         Initialize();
     }
 

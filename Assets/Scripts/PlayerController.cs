@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         Jump();
         BuffRunOut();
         Teleport();
-        RestoreMana();
+        //RestoreMana(); //maybe not
     }
 
     private void PlayerMovement()
@@ -159,6 +159,10 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetBool("isJumping", false);
             numberJumps = 0;
+        }
+        else
+        {
+            playerAnimator.SetBool("isJumping", true);
         }
 
         if (numberJumps <= numberOfJumps - 1)
@@ -237,6 +241,8 @@ public class PlayerController : MonoBehaviour
 
     public void Teleport()
     {
+        //TODO: MAKE TELEPORT NOT ACTIVATE IF CLICK ON COLLIDER
+
         Camera cam = Camera.main;
         
         if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport && mana >= manaCost)
