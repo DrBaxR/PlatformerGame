@@ -49868,9 +49868,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7332058693668970685, guid: 02b92e14690e7c44b84879c8e123874b, type: 3}
   speed: 10
-  stoppingDistance: 30
+  stoppingDistance: 5
   retreatDistance: 2
   distance: 2
+  jumpForce: 0
+  fleeDistance: 10
   groundDetectionRight: {fileID: 1448377840}
   groundDetectionLeft: {fileID: 1589278593}
   startTimeBtwShots: 2
@@ -50519,11 +50521,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8673142563314292842, guid: 3d50a152d5c55ce41a9145b053d6dd6c,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 917283277}
     - target: {fileID: 8673142563314292841, guid: 3d50a152d5c55ce41a9145b053d6dd6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50579,5 +50576,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8673142563314292842, guid: 3d50a152d5c55ce41a9145b053d6dd6c,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 917283277}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d50a152d5c55ce41a9145b053d6dd6c, type: 3}

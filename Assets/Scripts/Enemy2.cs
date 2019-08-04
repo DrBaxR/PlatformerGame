@@ -11,6 +11,8 @@ public class Enemy2 : MonoBehaviour
     public float stoppingDistance;
     public float retreatDistance;
     public float distance;
+    public float jumpForce;
+    public float fleeDistance;
 
     public Transform groundDetectionRight;
     public Transform groundDetectionLeft;
@@ -18,13 +20,18 @@ public class Enemy2 : MonoBehaviour
     public float startTimeBtwShots;
 
     private bool movingRight = true;
+    private bool hasMoved = false;
     private float timeBtwShots;
     private Transform player;
+    private Rigidbody2D rb;
+    private Vector2 initial;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
         timeBtwShots = startTimeBtwShots;
+        initial = new Vector2(transform.position.x, transform.position.y);
     }
 
     // Update is called once per frame
@@ -42,9 +49,15 @@ public class Enemy2 : MonoBehaviour
         if (groundInfoRight.collider == false)
         {
             movingRight = false;
+           
+
         }
-        if (groundInfoLeft.collider == false)
+         if(groundInfoLeft.collider == false)
+        {
             movingRight = false;
+            
+
+        }
     }
 
     private void Shooting()
@@ -66,11 +79,13 @@ public class Enemy2 : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, dir, speed * Time.deltaTime);
             /*transform.position = new Vector2(transform.position.x, 0);
             transform.position = new Vector2(transform.position.x * speed,transform.position.y);*/
+            hasMoved = true;
 
         }
         else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance && movingRight)
         {
             transform.position = this.transform.position;
+            
         }
         else if (Vector2.Distance(transform.position, player.position) < retreatDistance && movingRight)
         {
@@ -78,6 +93,30 @@ public class Enemy2 : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, dir, -speed * Time.deltaTime);
             /* transform.position = new Vector2(transform.position.x, 0);
             transform.position = new Vector2(-(transform.position.x*speed), transform.position.y);*/
+            hasMoved = true;
+        }
+        if(movingRight == false)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, initial, speed * Time.deltaTime);
+            movingRight = true;
+        }
+
+        if(Vector2.Distance(transform.position, player.position) > fleeDistance )
+        {
+            transform.position = Vector2.MoveTowards(transform.position, initial, -speed * Time.deltaTime);
+            hasMoved = false;
         }
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player" && movingRight==false)
+        {
+            Vector2 direction = new Vector2(1, 1);
+            rb.AddForce(Vector2.up * jumpForce);
+            
+            
+        }
+    }*/
+    
 }
