@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public Transform underPlayer;
     public LayerMask whatIsGround;
+    public Vector2 checkpoint;
 
     //hidden in the inspector
     [HideInInspector]
@@ -58,7 +59,6 @@ public class PlayerController : MonoBehaviour
     private float nextTeleport;
     private float initMaxHealth;
     private Rigidbody2D rb;
-    private Vector2 checkpoint;
 
     private void Start()
     {
@@ -272,9 +272,11 @@ public class PlayerController : MonoBehaviour
 
     private void MoveCheckpoint()
     {
-        if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround))
+        Collider2D coll = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        if (coll != null) 
         {
-            checkpoint = transform.position;
+            if(coll.tag != "MovingPlatform")
+                checkpoint = transform.position;
         }
     }
 
@@ -287,5 +289,21 @@ public class PlayerController : MonoBehaviour
     private void CheckDeath()
     {
         isDead = (health <= 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
     }
 }
