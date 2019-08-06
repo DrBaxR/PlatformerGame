@@ -50066,61 +50066,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: manaSlider
-      value: 
-      objectReference: {fileID: 1685986120}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[0]
-      value: 
-      objectReference: {fileID: 1206030908}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[1]
-      value: 
-      objectReference: {fileID: 405209537}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[2]
-      value: 
-      objectReference: {fileID: 1844958634}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 782004861}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: manaText
-      value: 
-      objectReference: {fileID: 1594483295}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1796975612}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthStat
-      value: 
-      objectReference: {fileID: 557433505}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: attackDamageStat
-      value: 
-      objectReference: {fileID: 183443512}
     - target: {fileID: 1572092462408102618, guid: fc160d89b2c0aec4395a267baf694b95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50176,6 +50121,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: manaSlider
+      value: 
+      objectReference: {fileID: 1685986120}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[0]
+      value: 
+      objectReference: {fileID: 1206030908}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[1]
+      value: 
+      objectReference: {fileID: 405209537}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[2]
+      value: 
+      objectReference: {fileID: 1844958634}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 782004861}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: manaText
+      value: 
+      objectReference: {fileID: 1594483295}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1796975612}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthStat
+      value: 
+      objectReference: {fileID: 557433505}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: attackDamageStat
+      value: 
+      objectReference: {fileID: 183443512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc160d89b2c0aec4395a267baf694b95, type: 3}
 --- !u!1001 &2155376231070753103
@@ -50407,6 +50407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043682339060481865, guid: 585b6b343447a5e4d97845c001a0a82a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6043682339060481870, guid: 585b6b343447a5e4d97845c001a0a82a,
         type: 3}
