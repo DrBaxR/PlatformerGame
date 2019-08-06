@@ -273,7 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 182642002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217565431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375756454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 460169054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26801,7 +26801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1311225142
 Transform:
   m_ObjectHideFlags: 0
@@ -50273,61 +50273,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: manaSlider
-      value: 
-      objectReference: {fileID: 1685986120}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[0]
-      value: 
-      objectReference: {fileID: 1206030908}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[1]
-      value: 
-      objectReference: {fileID: 405209537}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: buff.Array.data[2]
-      value: 
-      objectReference: {fileID: 1844958634}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 782004861}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: manaText
-      value: 
-      objectReference: {fileID: 1594483295}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1796975612}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: healthStat
-      value: 
-      objectReference: {fileID: 557433505}
-    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
-        type: 3}
-      propertyPath: attackDamageStat
-      value: 
-      objectReference: {fileID: 183443512}
     - target: {fileID: 1572092462408102618, guid: fc160d89b2c0aec4395a267baf694b95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50383,6 +50328,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: manaSlider
+      value: 
+      objectReference: {fileID: 1685986120}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[0]
+      value: 
+      objectReference: {fileID: 1206030908}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[1]
+      value: 
+      objectReference: {fileID: 405209537}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: buff.Array.data[2]
+      value: 
+      objectReference: {fileID: 1844958634}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 782004861}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: manaText
+      value: 
+      objectReference: {fileID: 1594483295}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1796975612}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: healthStat
+      value: 
+      objectReference: {fileID: 557433505}
+    - target: {fileID: 1572092462408102617, guid: fc160d89b2c0aec4395a267baf694b95,
+        type: 3}
+      propertyPath: attackDamageStat
+      value: 
+      objectReference: {fileID: 183443512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc160d89b2c0aec4395a267baf694b95, type: 3}
 --- !u!1001 &2155376231070753103
@@ -50489,7 +50489,7 @@ PrefabInstance:
     - target: {fileID: 4907590088940432834, guid: 519d63c76157e1b47aedb1d1d626f186,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.59
+      value: -8.35
       objectReference: {fileID: 0}
     - target: {fileID: 4907590088940432834, guid: 519d63c76157e1b47aedb1d1d626f186,
         type: 3}
@@ -50614,6 +50614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043682339060481865, guid: 585b6b343447a5e4d97845c001a0a82a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6043682339060481870, guid: 585b6b343447a5e4d97845c001a0a82a,
         type: 3}
@@ -50805,7 +50810,7 @@ PrefabInstance:
     - target: {fileID: 8673142563314292841, guid: 3d50a152d5c55ce41a9145b053d6dd6c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.007
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8673142563314292841, guid: 3d50a152d5c55ce41a9145b053d6dd6c,
         type: 3}

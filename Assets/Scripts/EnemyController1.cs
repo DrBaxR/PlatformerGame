@@ -32,7 +32,7 @@ public class EnemyController1 : Enemy
         Transform groundDetect = gameObject.transform.GetChild(0);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetect.transform.position, Vector2.down, distance);
-        if (groundInfo.collider == false)
+        if (groundInfo.collider == null)
         {
             if (movingRight == true)
             {

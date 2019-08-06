@@ -44,8 +44,13 @@ public class GameManager : MonoBehaviour
     {
         if(player.isDead)
         {   
+            //do the "game over stuff"
             SceneManager.LoadScene("Game Over");
             gameOver = true;
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         UpdateUI();
     }
