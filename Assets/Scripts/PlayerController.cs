@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public float maxMana;
     public float manaCost;
     public float manaRegen;
-    public float fallDamage;
     public float manaRegenCooldown;
     public Transform groundCheck;
     public Transform underPlayer;
