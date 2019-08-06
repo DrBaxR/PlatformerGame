@@ -10,7 +10,7 @@ public class FallCollider : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-            player.Kill();
+            player.FallDamage(25);
         }
     }
 }

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if(player.isDead)
         {   
+            //do the "game over stuff"
             SceneManager.LoadScene("Game Over");
             gameOver = true;
         }

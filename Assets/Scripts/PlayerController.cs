@@ -18,10 +18,11 @@ public class PlayerController : MonoBehaviour
     public float maxMana;
     public float manaCost;
     public float manaRegen;
+    public float fallDamage;
     public float manaRegenCooldown;
     public Transform groundCheck;
+    public Transform underPlayer;
     public LayerMask whatIsGround;
-    public GameManager gm;
 
     //hidden in the inspector
     [HideInInspector]
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public float maxDamage;
     [HideInInspector]
     public Animator playerAnimator;
+    [HideInInspector]
+    public GameManager gm;
 
     //private varaibles
     private float nextManaRegen;
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
     private float nextTeleport;
     private float initMaxHealth;
     private Rigidbody2D rb;
+    private Vector2 checkpoint;
 
     private void Start()
     {
@@ -85,6 +89,8 @@ public class PlayerController : MonoBehaviour
         Jump();
         BuffRunOut();
         Teleport();
+        MoveCheckpoint();
+        CheckDeath();
         //RestoreMana(); //maybe not
     }
 
@@ -153,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         bool ableJump;
 
-        grounded = Physics2D.OverlapCircle(new Vector2(groundCheck.position.x, groundCheck.position.y), groundCheckRadius, whatIsGround);
+        grounded = Physics2D.OverlapCircle(new Vector2(underPlayer.position.x, underPlayer.position.y), groundCheckRadius, whatIsGround);
 
         if (grounded == true)
         {
@@ -241,17 +247,16 @@ public class PlayerController : MonoBehaviour
 
     public void Teleport()
     {
-        //TODO: MAKE TELEPORT NOT ACTIVATE IF CLICK ON COLLIDER
-
-        Camera cam = Camera.main;
-        
         if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport && mana >= manaCost)
         {
-            Vector2 teleportDirection = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            transform.position = teleportDirection;
-            mana -= manaCost;
-            nextManaRegen = Time.time + manaRegenCooldown;
-            nextTeleport = Time.time + teleportCooldown;
+            Vector2 teleportDirection = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+            
+            if (!Physics2D.OverlapPoint(teleportDirection, whatIsGround))
+            {
+                transform.position = teleportDirection;
+                mana -= manaCost;
+                nextTeleport = Time.time + teleportCooldown;
+            }
         }
     }
 
@@ -263,5 +268,24 @@ public class PlayerController : MonoBehaviour
             nextManaRegen = Time.time + manaRegenCooldown;
         }
         mana = Mathf.Clamp(mana, 0, maxMana); 
+    }
+
+    private void MoveCheckpoint()
+    {
+        if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround))
+        {
+            checkpoint = transform.position;
+        }
+    }
+
+    public void FallDamage(int damage)
+    {
+        health -= damage;
+        transform.position = checkpoint;
+    }
+
+    private void CheckDeath()
+    {
+        isDead = (health <= 0);
     }
 }
