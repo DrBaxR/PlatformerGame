@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public Transform underPlayer;
     public LayerMask whatIsGround;
     public Vector2 checkpoint;
+    public Animator playerAnimator;
 
     //hidden in the inspector
     [HideInInspector]
@@ -41,8 +42,6 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     [HideInInspector]
     public float maxDamage;
-    [HideInInspector]
-    public Animator playerAnimator;
     [HideInInspector]
     public GameManager gm;
 
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
         initSprintSpeed = sprintSpeed;
         mana = maxMana;
         nextManaRegen = 0;
-        playerAnimator = GetComponent<Animator>();
+        //playerAnimator = GetComponent<Animator>();
 
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         gm.Initialize();
