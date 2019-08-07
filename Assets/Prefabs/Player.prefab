@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 3710044259214777937}
   - component: {fileID: 3710044259214777936}
   m_Layer: 0
-  m_Name: Player (fixed_)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,6 +258,7 @@ MonoBehaviour:
   teleportCooldown: 0
   attackDamage: 50
   numberJumps: 0
+  distance: 5
   maxMana: 100
   manaCost: 25
   manaRegen: 5
@@ -267,6 +268,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 16
   checkpoint: {x: 0, y: 0}
   playerAnimator: {fileID: 3710044258984516116}
   health: 0

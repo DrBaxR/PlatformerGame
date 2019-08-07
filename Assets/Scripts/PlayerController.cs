@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //public variables
     public float speed;
+    public float climbingSpeed;
     public float jumpHeight;
     public float gravMult;
     public int numberOfJumps;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float teleportCooldown;
     public float attackDamage;
     public int numberJumps;
+    public float distance;
 
     public float maxMana;
     public float manaCost;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public Transform underPlayer;
     public LayerMask whatIsGround;
+    public LayerMask whatIsLadder;
     public Vector2 checkpoint;
     public Animator playerAnimator;
 
@@ -44,11 +47,14 @@ public class PlayerController : MonoBehaviour
     public float maxDamage;
     [HideInInspector]
     public GameManager gm;
+    
 
     //private varaibles
     private float nextManaRegen;
+    private float inputVertical;
     private bool grounded;
     private bool movesRight;
+    private bool isClimbing;
     private float speedRunOut;
     private float damageRunOut;
     private float initDamage;
@@ -94,6 +100,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
+
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
         if (Input.GetKey(KeyCode.A))
         {
             if (Input.GetKey(KeyCode.LeftShift))
@@ -133,6 +141,30 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerAnimator.SetBool("isRunning", false);
+        }
+
+        if (hitInfo.collider != null)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isClimbing = true;
+            }
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            {
+                isClimbing = false;
+            }
+        }
+    
+         
+        if(isClimbing == true && hitInfo.collider !=null)
+        {
+            inputVertical = Input.GetAxisRaw("Vertical");
+            rb.velocity += Vector2.up * speed * inputVertical * Time.deltaTime;
+            rb.gravityScale = 0;
+        }
+        else
+        {
+                rb.gravityScale = 1;
         }
     }
 
