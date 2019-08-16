@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class EnemyController1 : Enemy
 {
-    
+
     public float distance;
     public float pushPower;
     private float nextDamage;
+    public GameObject[] dropItems;
+   public float dropRate = 3f;
 
-    
+
+
     private Rigidbody2D rb;
     private bool movingRight = true;
 
@@ -24,7 +27,11 @@ public class EnemyController1 : Enemy
         rb.velocity = transform.right * speed * Time.deltaTime + new Vector3(0, rb.velocity.y, 0);
         ChangeDirection();
         CheckforDeath();
-        
+        if (health <= 0)
+        {
+            DropItem();
+        }
+
     }
 
     private void ChangeDirection()
@@ -48,8 +55,8 @@ public class EnemyController1 : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(collision.gameObject.tag == "Player" && Time.time >= nextDamage )
+
+        if (collision.gameObject.tag == "Player" && Time.time >= nextDamage)
         {
             PlayerController player;
             player = collision.gameObject.GetComponent<PlayerController>();
@@ -61,5 +68,15 @@ public class EnemyController1 : Enemy
             player.push(pushForce * pushPower * 100);
         }
     }
-    
+
+    public void DropItem()
+    {
+        //if (Random.Range(2f, 4f) <= dropRate)
+        
+            int indexToDrop = Random.Range(0, dropItems.Length);
+
+            Instantiate(dropItems[indexToDrop], transform.position, transform.rotation);
+        
+
+    }
 }

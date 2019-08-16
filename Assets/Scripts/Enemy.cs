@@ -7,6 +7,9 @@ public class Enemy : Damageable
     public float speed;
     public int damageAmount;
     public float damageCooldown;
+    
+
+   
 
     private void Update()
     {
@@ -18,6 +21,8 @@ public class Enemy : Damageable
         if (health <= 0)
         {
             Destroy(gameObject);
+            
+
         }
     }
 }

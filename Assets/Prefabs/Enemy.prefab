@@ -179,6 +179,11 @@ MonoBehaviour:
   damageCooldown: 0.1
   distance: 1
   pushPower: 10
+  dropItems:
+  - {fileID: 8447058239350657952, guid: 6657a2a6f6ddb4d4091aa54139f681d3, type: 3}
+  - {fileID: 5829809231343531703, guid: a244aa90622f3304282d037c780cfad5, type: 3}
+  - {fileID: 3979364284529612345, guid: 1715877467a90994b80013aef268374d, type: 3}
+  dropRate: 0.25
 --- !u!95 &1250282202
 Animator:
   serializedVersion: 3
