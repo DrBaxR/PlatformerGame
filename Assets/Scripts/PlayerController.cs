@@ -148,10 +148,11 @@ public class PlayerController : MonoBehaviour
 
         if (hitInfoUp.collider != null)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
             {
                 isClimbing = true;
-                ascending = true;
+            }
+                /*ascending = true;
                 descending = false;
 
             }
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour
                 ascending = false;
                 
 
-            }
+            }*/
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
                 isClimbing = false;
@@ -173,7 +174,7 @@ public class PlayerController : MonoBehaviour
         
 
 
-        if (isClimbing == true && hitInfoUp.collider !=null && ascending == true)
+        if (isClimbing == true && hitInfoUp.collider !=null)
         {
             inputVertical = Input.GetAxisRaw("Vertical");
             rb.velocity += Vector2.up * speed * inputVertical * Time.deltaTime;

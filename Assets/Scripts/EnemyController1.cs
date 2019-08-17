@@ -10,12 +10,14 @@ public class EnemyController1 : Enemy
     public float pushPower;
     private float nextDamage;
     public GameObject[] dropItems;
-   public float dropRate = 3f;
+    public GameObject healthBar;
+    public float dropRate = 3f;
 
-
+    private Vector3 localScale;
 
     private Rigidbody2D rb;
     private float maxHealth;
+    private float actualHealth;
     private bool movingRight = true;
 
     private void Start()
@@ -23,11 +25,15 @@ public class EnemyController1 : Enemy
         rb = GetComponent<Rigidbody2D>();
         nextDamage = Time.time;
         maxHealth = health;
+       
+        localScale = healthBar.transform.localScale;
     }
 
     private void Update()
     {
         rb.velocity = transform.right * speed * Time.deltaTime + new Vector3(0, rb.velocity.y, 0);
+        localScale.x = (float)health/maxHealth;
+        healthBar.transform.localScale = localScale;
         ChangeDirection();
         CheckforDeath();
         if (health <= 0)
