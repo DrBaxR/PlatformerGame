@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController1 : Enemy
 {
@@ -14,12 +15,14 @@ public class EnemyController1 : Enemy
 
 
     private Rigidbody2D rb;
+    private float maxHealth;
     private bool movingRight = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         nextDamage = Time.time;
+        maxHealth = health;
     }
 
     private void Update()

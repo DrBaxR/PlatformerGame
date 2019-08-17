@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private bool movesRight;
     private bool isClimbing;
+    private bool ascending = false;
+    private bool descending = false;
     private float speedRunOut;
     private float damageRunOut;
     private float initDamage;
@@ -101,7 +103,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerMovement()
     {
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
+        RaycastHit2D hitInfoUp = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
+        RaycastHit2D hitInfoDown = Physics2D.Raycast(transform.position, Vector2.down, distance, whatIsLadder);
         if (Input.GetKey(KeyCode.A))
         {
             if (Input.GetKey(KeyCode.LeftShift))
@@ -143,25 +146,45 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("isRunning", false);
         }
 
-        if (hitInfo.collider != null)
+        if (hitInfoUp.collider != null)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 isClimbing = true;
+                ascending = true;
+                descending = false;
+
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                isClimbing = true;
+                descending = true;
+                ascending = false;
+                
+
             }
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
                 isClimbing = false;
+
             }
         }
-    
-         
-        if(isClimbing == true && hitInfo.collider !=null)
+
+        
+
+
+        if (isClimbing == true && hitInfoUp.collider !=null && ascending == true)
         {
             inputVertical = Input.GetAxisRaw("Vertical");
             rb.velocity += Vector2.up * speed * inputVertical * Time.deltaTime;
             rb.gravityScale = 0;
         }
+        /*else if (isClimbing == true && hitInfoUp.collider != null && descending == true)
+        {
+            inputVertical = Input.GetAxisRaw("Vertical");
+            rb.velocity += Vector2.down * speed * inputVertical * Time.deltaTime;
+            rb.gravityScale = 0;
+        }*/
         else
         {
                 rb.gravityScale = 1;
