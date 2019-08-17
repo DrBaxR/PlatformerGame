@@ -54,11 +54,13 @@ public class EnemyController1 : Enemy
             {
                 movingRight = false;
                 transform.eulerAngles = new Vector3(0, -180, 0);
+               
             }
             else
             {
                 movingRight = true;
                 transform.eulerAngles = new Vector3(0, 0, 0);
+                
             }
         }
     }
