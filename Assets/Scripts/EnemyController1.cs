@@ -19,6 +19,9 @@ public class EnemyController1 : Enemy
     private float maxHealth;
     private float actualHealth;
     private bool movingRight = true;
+   
+
+   
 
     private void Start()
     {
@@ -34,6 +37,7 @@ public class EnemyController1 : Enemy
         rb.velocity = transform.right * speed * Time.deltaTime + new Vector3(0, rb.velocity.y, 0);
         localScale.x = (float)health/maxHealth;
         healthBar.transform.localScale = localScale;
+        healthBar.transform.localRotation = Quaternion.identity;
         ChangeDirection();
         CheckforDeath();
         if (health <= 0)
@@ -42,6 +46,8 @@ public class EnemyController1 : Enemy
         }
 
     }
+
+  
 
     private void ChangeDirection()
     {

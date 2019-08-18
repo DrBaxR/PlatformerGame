@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class FixRotation : MonoBehaviour
 {
-    Quaternion rotation;
-    void Awake()
-    {
-        rotation = transform.rotation;
-    }
+    public GameObject enemy;
+   
     void LateUpdate()
     {
-        transform.rotation = rotation;
+        transform.position = enemy.transform.position;
     }
 }
