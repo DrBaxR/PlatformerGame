@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Text healthStat;
     [HideInInspector] public Text attackDamageStat;
 
+    private bool isLevel;
+
     private void Awake()
     {
         PlayerPrefs.SetInt("score", 0);
@@ -33,26 +35,25 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Game Over")
-        {
-            gameObject.SetActive(false);
-        }
         Initialize();
     }
 
     private void Update()
     {
-        if(player.isDead)
-        {   
-            //do the "game over stuff"
-            SceneManager.LoadScene("Game Over");
-            gameOver = true;
-        }
-        if(Input.GetKeyDown(KeyCode.R))
+        if (isLevel)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (player.isDead)
+            {
+                //do the "game over stuff"
+                SceneManager.LoadScene("Game Over");
+                gameOver = true;
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            UpdateUI();
         }
-        UpdateUI();
     }
 
     void UpdateUI()
@@ -88,7 +89,15 @@ public class GameManager : MonoBehaviour
     {
         //initializes all the objects
         //player
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>() != null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            isLevel = true;
+        }
+        else
+        {
+            isLevel = false;
+        }
 
         //UI
         //!!!ORDER IN HIERARCHY IS IMPORTANT AS FUCK!!!
