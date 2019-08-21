@@ -24,11 +24,14 @@ public class PlayerController : MonoBehaviour
     public float manaRegenCooldown;
     public Transform groundCheck;
     public Transform underPlayer;
+    public Transform particleSpawnPoint;
     public LayerMask whatIsGround;
     public LayerMask whatIsLadder;
     public Vector2 checkpoint;
     public Animator playerAnimator;
     public Shaker shaker;
+    public GameObject dustVFX;
+    
 
 
     //hidden in the inspector
@@ -112,11 +115,13 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
+                SpawnDustVFX();
                 rb.velocity += Vector2.left * sprintSpeed * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, -180, 0);
             }
             else
             {
+                SpawnDustVFX();
                 rb.velocity += Vector2.left * speed * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, -180, 0);
             }
@@ -130,13 +135,16 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
+                SpawnDustVFX();
                 rb.velocity += Vector2.right * sprintSpeed * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else
             {
+                SpawnDustVFX();
                 rb.velocity += Vector2.right * speed * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, 0, 0);
+                
             }
 
             if(playerAnimator.GetBool("isJumping") == false)
@@ -362,6 +370,14 @@ public class PlayerController : MonoBehaviour
         if(collision.transform.tag == "MovingPlatform")
         {
             transform.parent = null;
+        }
+    }
+    private void SpawnDustVFX()
+    {
+        if (grounded)
+        { 
+            GameObject dust = Instantiate(dustVFX, particleSpawnPoint.position, Quaternion.identity);
+            Destroy(dust, 0.2f);
         }
     }
 }
