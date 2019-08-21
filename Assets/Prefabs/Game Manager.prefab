@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572092462408102618}
   - component: {fileID: 1572092462408102617}
-  - component: {fileID: 373031475}
+  - component: {fileID: -632633122076887050}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -57,8 +57,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   healthStat: {fileID: 0}
   attackDamageStat: {fileID: 0}
-  score: 0
---- !u!114 &373031475
+--- !u!114 &-632633122076887050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
