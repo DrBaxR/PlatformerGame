@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float attackDamage;
     public int numberJumps;
     public float distance;
+    public float shakeDuration;
 
     public float maxMana;
     public float manaCost;
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsLadder;
     public Vector2 checkpoint;
     public Animator playerAnimator;
+    public Shaker shaker;
+
 
     //hidden in the inspector
     [HideInInspector]
@@ -259,6 +262,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        shaker.TriggerShake();
         if (health <= 0)
             isDead = true;
     }

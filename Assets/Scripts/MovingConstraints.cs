@@ -8,6 +8,7 @@ public class MovingConstraints : MonoBehaviour
     public float speed;
     public float groundY = 1.0f;
     
+
     void Update()
     {
         Vector2 targetPos = new Vector2(target.position.x, target.position.y);
@@ -20,5 +21,9 @@ public class MovingConstraints : MonoBehaviour
             //smooth move on y axis
             transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos.y, speed), -10);
         }
+
+      
     }
+
+    
 }
