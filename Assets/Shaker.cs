@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shaker : MonoBehaviour
 {
     private float shakeDuration = 0f;
-    private float shakeMagnitude = 0.7f;
+    private float shakeMagnitude = 0.1f;
     private float dampingSpeed = 1.0f;
     Vector3 initialPosition;
 
@@ -20,7 +20,8 @@ public class Shaker : MonoBehaviour
     {
         if (shakeDuration > 0)
         {
-            transform.localPosition = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), initialPosition.z);
+            //transform.localPosition = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), initialPosition.z);
+            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
 
             shakeDuration -= Time.deltaTime * dampingSpeed;
         }
@@ -33,6 +34,6 @@ public class Shaker : MonoBehaviour
     }
     public void TriggerShake()
     {
-        shakeDuration = 1.0f;
+        shakeDuration = 0.2f;
     }
 }
