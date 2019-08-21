@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         if (isClimbing == true && hitInfoUp.collider !=null)
         {
             inputVertical = Input.GetAxisRaw("Vertical");
-            rb.velocity += Vector2.up * speed * inputVertical * Time.deltaTime;
+            rb.velocity += Vector2.up * speed * inputVertical * Time.deltaTime * 2;
             rb.gravityScale = 0;
         }
         /*else if (isClimbing == true && hitInfoUp.collider != null && descending == true)
