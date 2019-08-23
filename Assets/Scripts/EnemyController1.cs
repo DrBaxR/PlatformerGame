@@ -93,7 +93,5 @@ public class EnemyController1 : Enemy
             int indexToDrop = Random.Range(0, dropItems.Length);
 
             Instantiate(dropItems[indexToDrop], transform.position, transform.rotation);
-        
-
     }
 }
