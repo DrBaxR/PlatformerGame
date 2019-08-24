@@ -12,6 +12,7 @@ public class EnemyController1 : Enemy
     public GameObject[] dropItems;
     public GameObject healthBar;
     public float dropRate = 3f;
+    public Transform front;
 
     private Vector3 localScale;
 
@@ -54,7 +55,8 @@ public class EnemyController1 : Enemy
         Transform groundDetect = gameObject.transform.GetChild(0);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetect.transform.position, Vector2.down, distance);
-        if (groundInfo.collider == null)
+
+        if (groundInfo.collider == null || Physics2D.OverlapPoint(front.position))
         {
             if (movingRight == true)
             {
