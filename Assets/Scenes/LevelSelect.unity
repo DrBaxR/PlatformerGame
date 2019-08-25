@@ -259,6 +259,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 534909563}
+    - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level5
+      objectReference: {fileID: 0}
     - target: {fileID: 1692086918394641628, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
       propertyPath: m_IsActive
@@ -829,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3619557399b540aaa187895d07888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedLevels: 4
+  unlockedLevels: 6
   levelButtons:
   - {fileID: 2615679}
   - {fileID: 1731733996}
@@ -2713,7 +2718,7 @@ PrefabInstance:
     - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Tutorial
+      value: Level4
       objectReference: {fileID: 0}
     - target: {fileID: 1692086918394641628, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
