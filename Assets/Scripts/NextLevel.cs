@@ -11,8 +11,9 @@ public class NextLevel : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            SceneFader fader = GameObject.FindObjectOfType<SceneFader>();
             PlayerPrefs.SetInt("score", GameManager.score);
-            SceneManager.LoadScene(nextLevel);
+            fader.FadeScene(nextLevel);
         }
     }
 }
