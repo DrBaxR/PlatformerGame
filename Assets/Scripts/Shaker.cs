@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shaker : MonoBehaviour
 {
     private float shakeDuration = 0f;
-    private float shakeMagnitude = 0.1f;
+    private float shakeMagnitude = 0.5f;
     private float dampingSpeed = 1.0f;
     Vector3 initialPosition;
 
@@ -34,6 +34,6 @@ public class Shaker : MonoBehaviour
     }
     public void TriggerShake()
     {
-        shakeDuration = 0.2f;
+        shakeDuration = 0.4f;
     }
 }
