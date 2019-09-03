@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerController player;
     [HideInInspector] public Slider healthSlider;
     [HideInInspector] public Slider manaSlider;
-    [HideInInspector] public Image[] buff;
+     public Image[] buff;
     [HideInInspector] public Text healthText;
     [HideInInspector] public Text manaText;
     [HideInInspector] public Text scoreText;

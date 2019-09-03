@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   healthText: {fileID: 0}
   manaText: {fileID: 0}
   scoreText: {fileID: 0}

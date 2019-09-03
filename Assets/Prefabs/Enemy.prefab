@@ -295,6 +295,7 @@ MonoBehaviour:
   - {fileID: 5829809231343531703, guid: a244aa90622f3304282d037c780cfad5, type: 3}
   - {fileID: 3979364284529612345, guid: 1715877467a90994b80013aef268374d, type: 3}
   healthBar: {fileID: 156382011}
+  bleedingSprite: {fileID: 21300000, guid: b7bd448877098e544b014bcac270abbb, type: 3}
   dropRate: 0.25
   front: {fileID: 8224457576376675632}
 --- !u!95 &1250282202

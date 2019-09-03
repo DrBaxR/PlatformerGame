@@ -311,6 +311,14 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(gm.AddBuff(duration, attackSprite));
     }
 
+    public void DebuffBleed(float duration,Sprite bleedingSprite)
+    {
+        
+        StartCoroutine(gm.AddBuff(duration, bleedingSprite));
+    }
+
+
+
     public void Teleport()
     {
         if (Input.GetMouseButtonDown(1) && Time.time > nextTeleport && mana >= manaCost)
@@ -324,6 +332,11 @@ public class PlayerController : MonoBehaviour
                 nextTeleport = Time.time + teleportCooldown;
             }
         }
+    }
+
+    public void DamageOverTime(int damageAmount,int duration)
+    {
+        StartCoroutine(DamageOverTimeCoroutine(damageAmount, duration));
     }
 
     public void RestoreMana()
@@ -378,6 +391,18 @@ public class PlayerController : MonoBehaviour
         { 
             GameObject dust = Instantiate(dustVFX, particleSpawnPoint.position, Quaternion.identity);
             Destroy(dust, 0.2f);
+        }
+    }
+
+    private IEnumerator DamageOverTimeCoroutine(float damageAmount,float duration)
+    {
+        float amountDamaged = 0;
+        float damagePerLoop = damageAmount / duration;
+        while(amountDamaged<damageAmount)
+        {
+            health -= (int) damagePerLoop;
+            amountDamaged += damagePerLoop;
+            yield return new WaitForSeconds(1f);
         }
     }
 }

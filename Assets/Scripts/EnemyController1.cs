@@ -11,6 +11,7 @@ public class EnemyController1 : Enemy
     private float nextDamage;
     public GameObject[] dropItems;
     public GameObject healthBar;
+    public Sprite bleedingSprite;
     public float dropRate = 3f;
     public Transform front;
 
@@ -77,10 +78,14 @@ public class EnemyController1 : Enemy
 
         if (collision.gameObject.tag == "Player" && Time.time >= nextDamage)
         {
+
             PlayerController player;
             player = collision.gameObject.GetComponent<PlayerController>();
             player.TakeDamage(damageAmount);
+            player.DamageOverTime(damageAmount/5,5);
+            player.DebuffBleed(5, bleedingSprite);
             nextDamage = Time.time + damageCooldown;
+
 
             Vector2 pushForce = player.transform.position - transform.position + Vector3.up;
             pushForce.Normalize();
