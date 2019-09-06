@@ -57,19 +57,38 @@ public class EnemyController1 : Enemy
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetect.transform.position, Vector2.down, distance);
 
-        if (groundInfo.collider == null || Physics2D.OverlapPoint(front.position))
+        if (groundInfo.collider == null)
         {
-            if (movingRight == true)
+                if (movingRight == true)
+                {
+                    movingRight = false;
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+
+                }
+                else
+                {
+                    movingRight = true;
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+
+                }
+        }
+
+        if (Physics2D.OverlapPoint(front.position))
+        {
+            if (Physics2D.OverlapPoint(front.position).tag != "Player")
             {
-                movingRight = false;
-                transform.eulerAngles = new Vector3(0, -180, 0);
-               
-            }
-            else
-            {
-                movingRight = true;
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                
+                if (movingRight == true)
+                {
+                    movingRight = false;
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+
+                }
+                else
+                {
+                    movingRight = true;
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+
+                }
             }
         }
     }
@@ -78,13 +97,16 @@ public class EnemyController1 : Enemy
 
         if (collision.gameObject.tag == "Player" && Time.time >= nextDamage)
         {
-
             PlayerController player;
             player = collision.gameObject.GetComponent<PlayerController>();
-            player.TakeDamage(damageAmount);
-            player.DamageOverTime(damageAmount/5,5);
-            player.DebuffBleed(5, bleedingSprite);
-            nextDamage = Time.time + damageCooldown;
+
+            if (damageAmount > 0)
+            {
+                player.TakeDamage(damageAmount);
+                player.DamageOverTime(damageAmount / 5, 5);
+                player.DebuffBleed(5, bleedingSprite);
+                nextDamage = Time.time + damageCooldown;
+            }
 
 
             Vector2 pushForce = player.transform.position - transform.position + Vector3.up;
