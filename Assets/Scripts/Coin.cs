@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     public int collectibleValue;
     
-    public AudioManager audioPlay;
+   //public AudioManager audioPlay;
 
    
 
@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
         if(collision.tag == "Player")
         {
             // audioClip.clip = pickup;
-            audioPlay.PlaySound("coinPickup");
+            //audioPlay.PlaySound("coinPickup");
             //AudioSource.PlayClipAtPoint(pickup, transform.position);
             GameManager.IncrementScore(collectibleValue);
             Destroy(gameObject);
