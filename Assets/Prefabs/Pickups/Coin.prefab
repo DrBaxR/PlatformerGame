@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1059916871226085819, guid: 84aa6a80c309f9441812e9f6d54c34f9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleValue: 10
-  audioPlay: {fileID: 0}
+  audioPlay: {fileID: 6657602004292077851, guid: ad4df8f48f3b8f049b60c26dac7d3819,
+    type: 3}
 --- !u!61 &8447058239350657964
 BoxCollider2D:
   m_ObjectHideFlags: 0
