@@ -73,6 +73,14 @@ public class Enemy2 : MonoBehaviour
 
     private void EnemyMovement()
     {
+        if (transform.position.x > player.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (transform.position.x < player.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, -180, 0);
+        }
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance && movingRight)
         {
             Vector2 dir = new Vector2(player.position.x, transform.position.y);
