@@ -728,6 +728,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7322090367736252743}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &639455301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
+    type: 3}
+  m_PrefabInstance: {fileID: 7322090367736252743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639455294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e972ea743c8d1be44b7bfbb821382c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &647123874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4066737334456571268, guid: 1b421550228cc814cbe8f52bd6c0f12f,
@@ -27939,6 +27951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458031094}
+  - component: {fileID: 1458031095}
   m_Layer: 0
   m_Name: TUTORIAL
   m_TagString: Untagged
@@ -27965,6 +27978,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1458031095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458031093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca87f93e3bde1b4f998e93591b7f26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476560049
 GameObject:
   m_ObjectHideFlags: 0
@@ -52059,16 +52084,16 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Level1
       objectReference: {fileID: 0}
-    - target: {fileID: 6043682339060481865, guid: 585b6b343447a5e4d97845c001a0a82a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6043682339060481870, guid: 585b6b343447a5e4d97845c001a0a82a,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f45e9626748ba54408593537ab6d94e9, type: 2}
+    - target: {fileID: 6043682339060481865, guid: 585b6b343447a5e4d97845c001a0a82a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585b6b343447a5e4d97845c001a0a82a, type: 3}
 --- !u!1001 &6202512041540228969
@@ -52221,6 +52246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7322090367097493881, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7322090368840335613, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52299,7 +52329,107 @@ PrefabInstance:
     - target: {fileID: 7322090368388899516, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -69.970215
+      value: -146
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368434519203, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.24463
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368206672385, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -109.3999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367240043323, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.245117
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368591424281, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 810.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368591424281, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -110.63989
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368729256003, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368526661974, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.1400146
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090368526661974, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.43999958
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367097493764, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 639455301}
+    - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_text
+      value: Press A or D to move to the left, respectively right
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: Press A or D to move to the left, respectively right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can teleport at the cost of 25 MP by pressing RMB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: textDone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449801249018, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: Press SPACE to jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725451009090066, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can double-jump by pressing SPACE, mid-air
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725451323534779, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can attack by pressing LMB, mid-air
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c2729fb239b14a4b9291f2224603999, type: 3}
