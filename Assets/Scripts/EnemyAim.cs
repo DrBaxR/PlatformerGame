@@ -29,9 +29,9 @@ public class EnemyAim : MonoBehaviour
         newRotation.y = 0.0f;
 
         // Finally rotate and aim towards the target direction using Code below
-        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * enemyAimSpeed);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * enemyAimSpeed);
 
         // Another Alternative
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation,newRotation, Time.deltaTime * enemyAimSpeed);
+         transform.rotation = Quaternion.RotateTowards(transform.rotation,newRotation, Time.deltaTime * enemyAimSpeed);
     }
 }

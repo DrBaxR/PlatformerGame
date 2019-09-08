@@ -6,7 +6,11 @@ public class Coin : MonoBehaviour
 {
     public int collectibleValue;
     
+
    public AudioManager audioPlay;
+
+    
+
 
    
 
