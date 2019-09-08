@@ -37,25 +37,9 @@ public class Enemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //RotateTowards();
-        var direction = player.position - transform.position;
-
-        // Set Y the same to make the rotations turret-like:
-        direction.y = transform.position.y;
-
-        var rot = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(
-                                         transform.rotation,
-                                         rot,
-                                         5 * Time.deltaTime);
-   
-      EnemyMovement();
+        EnemyMovement();
         Shooting();
         Raycasting();
-        
-        
-            
-        
     }
 
     private void Raycasting()
@@ -65,8 +49,7 @@ public class Enemy2 : MonoBehaviour
         if (groundInfoRight.collider == false)
         {
             movingRight = false;
-            
-
+           
 
         }
          if(groundInfoLeft.collider == false)
@@ -74,12 +57,10 @@ public class Enemy2 : MonoBehaviour
             movingRight = false;
             
 
-
         }
     }
-    
 
-        private void Shooting()
+    private void Shooting()
     {
         if (timeBtwShots <= 0 && Vector2.Distance(transform.position, player.transform.position) < 20)
         {
@@ -89,21 +70,9 @@ public class Enemy2 : MonoBehaviour
         else
             timeBtwShots -= Time.deltaTime;
     }
-    private void RotateTowards()
-    {
-        var offset = 90f;
-        Vector2 direction = (Vector2)player.position - (Vector2)transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-    }
 
     private void EnemyMovement()
     {
-         if(player.position.x > transform.position.x) //if the target is to the right of enemy and the enemy is not facing right
-            transform.eulerAngles = new Vector3(0, -180, 0);
-        if (player.position.x < transform.position.x)
-            transform.eulerAngles = new Vector3(0,0, 0);
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance && movingRight)
         {
             Vector2 dir = new Vector2(player.position.x, transform.position.y);
@@ -126,19 +95,17 @@ public class Enemy2 : MonoBehaviour
             transform.position = new Vector2(-(transform.position.x*speed), transform.position.y);*/
             hasMoved = true;
         }
-        if (movingRight == false)
+        if(movingRight == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, initial, speed * Time.deltaTime);
             movingRight = true;
         }
 
-        if (Vector2.Distance(transform.position, player.position) > fleeDistance )
+        if(Vector2.Distance(transform.position, player.position) > fleeDistance )
         {
             transform.position = Vector2.MoveTowards(transform.position, initial, -speed * Time.deltaTime);
             hasMoved = false;
-
         }
-       
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)

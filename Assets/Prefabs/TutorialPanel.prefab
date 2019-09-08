@@ -329,7 +329,6 @@ GameObject:
   - component: {fileID: 160316083264890186}
   - component: {fileID: 160316083264890187}
   - component: {fileID: 160316083264890184}
-  - component: {fileID: 4624903257377928755}
   m_Layer: 0
   m_Name: TutorialPanel
   m_TagString: Untagged
@@ -420,20 +419,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86d16f2a5e392e4a903454a49c4559d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 4624903257377928755}
---- !u!114 &4624903257377928755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160316083264890165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e972ea743c8d1be44b7bfbb821382c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textCooldown: 5
-  text: {fileID: 160316083099645250}
-  targetText: Tutorial Prompt
-  textDone: 0
