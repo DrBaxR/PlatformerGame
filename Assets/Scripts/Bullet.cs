@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     public float moveSpeed;
+    public int damage;
 
     [SerializeField] 
     public float knockbackStrength;
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
 
     private Transform player;
+    private GameObject playerHealth;
 
 
     private Vector2 target;
@@ -23,6 +25,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
         target = new Vector2(player.position.x, player.position.y);
     }
 
@@ -52,8 +55,10 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            PlayerController playerHealth = collision.gameObject.GetComponent<PlayerController>();
             Vector2 direction = (transform.position - collision.transform.position+Vector3.up).normalized;
             rb.AddForce(-direction*knockbackStrength,ForceMode2D.Impulse);
+            playerHealth.TakeDamage(damage);
             DestroyProjectile();
             
         }

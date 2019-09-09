@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
-    public Transform target; // Target Object
+   public Transform target; // Target Object
     public float enemyAimSpeed = 5.0f; // Speed at Which Enenmy locks on the Target
     Quaternion newRotation;
     float orientTransform;
