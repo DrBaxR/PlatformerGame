@@ -52251,6 +52251,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: Press A or D to move to the left, respectively right
+      objectReference: {fileID: 0}
     - target: {fileID: 7322090368840335613, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52400,11 +52405,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: Press A or D to move to the left, respectively right
       objectReference: {fileID: 0}
     - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
