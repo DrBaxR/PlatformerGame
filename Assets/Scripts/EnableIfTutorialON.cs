@@ -14,5 +14,7 @@ public class EnableIfTutorialON : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        //
+        print("tutorialON: " + PlayerPrefs.GetInt("tutorialON", 1));
     }
 }
