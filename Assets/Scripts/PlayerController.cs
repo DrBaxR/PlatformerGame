@@ -270,7 +270,10 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        shaker.TriggerShake();
+        if (shaker)
+        {
+            shaker.TriggerShake();
+        }
         if (health <= 0)
             isDead = true;
     }
