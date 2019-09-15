@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-       myAudio =  GetComponent<AudioSource>();
+        myAudio =  GetComponent<AudioSource>();
         myAudio.PlayDelayed(3.0f);
     }
 
