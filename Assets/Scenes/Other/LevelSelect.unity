@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level3
+      value: Level7
       objectReference: {fileID: 0}
     - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3619557399b540aaa187895d07888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedLevels: 6
+  unlockedLevels: 8
   levelButtons:
   - {fileID: 2615679}
   - {fileID: 1731733996}
@@ -2196,7 +2196,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1850020134}
   m_HandleRect: {fileID: 1850020133}
   m_Direction: 0
-  m_Value: 0.95517004
+  m_Value: 0.9551697
   m_Size: 0.784436
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2372,7 +2372,7 @@ PrefabInstance:
     - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level2
+      value: Level6
       objectReference: {fileID: 0}
     - target: {fileID: 1692086919091847167, guid: b8c2c585cd3cebc429b06ceffe9590bf,
         type: 3}
