@@ -7,6 +7,7 @@ public class Enemy : Damageable
     public float speed;
     public int damageAmount;
     public float damageCooldown;
+    public GameObject bloodSplash;
     
 
    
@@ -20,6 +21,7 @@ public class Enemy : Damageable
     {
         if (health <= 0)
         {
+            Instantiate(bloodSplash, transform.position, Quaternion.identity);
             Destroy(gameObject);
             
 

@@ -288,6 +288,8 @@ MonoBehaviour:
   speed: 100
   damageAmount: 25
   damageCooldown: 0.1
+  bloodSplash: {fileID: 5507034083518126302, guid: abb51721fcb46db4697a6132f9b122ee,
+    type: 3}
   distance: 1
   pushPower: 10
   dropItems:

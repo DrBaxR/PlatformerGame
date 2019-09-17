@@ -3,28 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy2 : Enemy
 {
     [SerializeField] GameObject bullet;
+    public GameObject healthBar;
 
-    public float speed;
+    
     public float stoppingDistance;
     public float retreatDistance;
     public float distance;
     public float jumpForce;
     public float fleeDistance;
 
+   
+
+
     public Transform groundDetectionRight;
     public Transform groundDetectionLeft;
 
     public float startTimeBtwShots;
+    public int nothing;
 
     private bool movingRight = true;
     private bool hasMoved = false;
     private float timeBtwShots;
+    private float maxHealth;
     private Transform player;
     private Rigidbody2D rb;
     private Vector2 initial;
+    private Vector3 localScale;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +39,20 @@ public class Enemy2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timeBtwShots = startTimeBtwShots;
         initial = new Vector2(transform.position.x, transform.position.y);
+        maxHealth = health;
+        localScale = healthBar.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        localScale.x = (float)(health / maxHealth);
+        healthBar.transform.localScale = localScale;
+        healthBar.transform.localRotation = Quaternion.identity;
         EnemyMovement();
         Shooting();
         Raycasting();
+        CheckforDeath();
     }
 
     private void Raycasting()
