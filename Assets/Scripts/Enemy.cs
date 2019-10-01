@@ -8,9 +8,17 @@ public class Enemy : Damageable
     public int damageAmount;
     public float damageCooldown;
     public GameObject bloodSplash;
-    
 
-   
+    
+    private float maxHealth;
+    private AudioManager audioPlay;
+
+    private void Start()
+    {
+        maxHealth= health;
+        audioPlay = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
+
 
     private void Update()
     {
@@ -25,6 +33,13 @@ public class Enemy : Damageable
             Destroy(gameObject);
             
 
+        }
+    }
+    protected void decreasingHealth()
+    {
+        if(health<maxHealth)
+        {
+            audioPlay.PlaySound("enemyHit");
         }
     }
 }

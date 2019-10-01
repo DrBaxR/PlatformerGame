@@ -51904,16 +51904,16 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Level1
       objectReference: {fileID: 0}
-    - target: {fileID: 6043682339060481870, guid: 585b6b343447a5e4d97845c001a0a82a,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f45e9626748ba54408593537ab6d94e9, type: 2}
     - target: {fileID: 6043682339060481865, guid: 585b6b343447a5e4d97845c001a0a82a,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6043682339060481870, guid: 585b6b343447a5e4d97845c001a0a82a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f45e9626748ba54408593537ab6d94e9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585b6b343447a5e4d97845c001a0a82a, type: 3}
 --- !u!1001 &6202512041540228969
@@ -52052,6 +52052,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6657602004292077850, guid: ad4df8f48f3b8f049b60c26dac7d3819,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad4df8f48f3b8f049b60c26dac7d3819, type: 3}
 --- !u!1001 &7322090367736252743
@@ -52065,16 +52070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322090367097493881, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: Press A or D to move to the left, respectively right
       objectReference: {fileID: 0}
     - target: {fileID: 7322090368840335613, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
@@ -52151,11 +52146,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7322090368388899516, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -146
-      objectReference: {fileID: 0}
     - target: {fileID: 7322090368434519203, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -52181,6 +52171,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -110.63989
       objectReference: {fileID: 0}
+    - target: {fileID: 7322090368388899516, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -146
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322090367097493881, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7322090368729256003, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -52201,6 +52201,36 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 639455301}
+    - target: {fileID: 2849144447355062911, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: Press A or D to move to the left, respectively right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449801249018, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: Press SPACE to jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can teleport at the cost of 25 MP by pressing RMB
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: textDone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725451323534779, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can attack by pressing LMB, mid-air
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716725451009090066, guid: 1c2729fb239b14a4b9291f2224603999,
+        type: 3}
+      propertyPath: targetText
+      value: You can double-jump by pressing SPACE, mid-air
+      objectReference: {fileID: 0}
     - target: {fileID: 7322090367262738702, guid: 1c2729fb239b14a4b9291f2224603999,
         type: 3}
       propertyPath: m_text
@@ -52225,31 +52255,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: You can teleport at the cost of 25 MP by pressing RMB
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716725449722929374, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: textDone
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716725449801249018, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: Press SPACE to jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716725451009090066, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: You can double-jump by pressing SPACE, mid-air
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716725451323534779, guid: 1c2729fb239b14a4b9291f2224603999,
-        type: 3}
-      propertyPath: targetText
-      value: You can attack by pressing LMB, mid-air
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c2729fb239b14a4b9291f2224603999, type: 3}

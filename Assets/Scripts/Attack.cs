@@ -7,11 +7,13 @@ public class Attack : MonoBehaviour
     public Animator playerAnimator;
     
     private AudioSource audioSource;
+    private AudioManager audioPlay;
 
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioPlay = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     private void Update()
     {
@@ -29,6 +31,7 @@ public class Attack : MonoBehaviour
             
             Damageable enemy = collision.GetComponent<Damageable>();
             enemy.health -= transform.GetComponentInParent<PlayerController>().attackDamage;
+            audioPlay.PlaySound("enemyHit");
         }
     }
 }

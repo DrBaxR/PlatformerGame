@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
     private float nextTeleport;
     private float initMaxHealth;
     private Rigidbody2D rb;
+    private AudioManager audioPlay;
 
     private void Start()
     {
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
         mana = maxMana;
         nextManaRegen = 0;
         //playerAnimator = GetComponent<Animator>();
+        audioPlay = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         gm.Initialize();
@@ -273,6 +275,7 @@ public class PlayerController : MonoBehaviour
         if (shaker)
         {
             shaker.TriggerShake();
+            audioPlay.PlaySound("playerHit");
         }
         if (health <= 0)
             isDead = true;

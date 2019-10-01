@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - UI
   - MovingPlatform
+  - AudioManager
   layers:
   - Default
   - TransparentFX
