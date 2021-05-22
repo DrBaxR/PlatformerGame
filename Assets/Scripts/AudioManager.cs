@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyHitEffect1;
     public AudioClip enemyHitEffect2;
 
+    public AudioClip manaPickup;
+    public AudioClip healthPickup;
+
     AudioSource myAudio;
 
     void Start()
@@ -30,15 +33,15 @@ public class AudioManager : MonoBehaviour
         }
         if(clip == "enemyHit")
         {
-            float randomHitEffect = Random.Range(0f, 1f);
-            if(randomHitEffect <=0.5f)
-            {
-                myAudio.PlayOneShot(enemyHitEffect1);
-            }
-            else
-            {
-                myAudio.PlayOneShot(enemyHitEffect2);
-            }
+            myAudio.PlayOneShot(enemyHitEffect1);
+        }
+        if (clip == "manaPickup")
+        {
+            myAudio.PlayOneShot(manaPickup);
+        }
+         if (clip == "healthPickup")
+        {
+            myAudio.PlayOneShot(healthPickup);
         }
     }
 }

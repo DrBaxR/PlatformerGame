@@ -36,10 +36,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Initialize();
+        //PlayerPrefs.SetInt("score", 0);
+        
     }
 
     private void Update()
     {
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+           PlayerPrefs.SetInt("score", 0);
+        }
         if (isLevel)
         {
             if (player.isDead)
@@ -54,6 +60,7 @@ public class GameManager : MonoBehaviour
             }
             UpdateUI();
         }
+        
     }
 
     void UpdateUI()
@@ -108,7 +115,7 @@ public class GameManager : MonoBehaviour
             buff[2] = icons.transform.GetChild(2).GetComponent<Image>();
             healthStat = ui.transform.GetChild(6).GetComponent<Text>();                              //health stat = 6 in canvas
             attackDamageStat = ui.transform.GetChild(7).GetComponent<Text>();                        //attack damage stat = 7 in canvas
-
+            
             isLevel = true;
         }
         else

@@ -11,6 +11,10 @@ public class SceneFader : MonoBehaviour
     
     public void FadeScene(string name)
     {
+        if(name=="MainMenu")
+        {
+            PlayerPrefs.SetInt("score",0);
+        }
         levelToLoad = name;
         fadeAnim.SetTrigger("fadeOut");
     }

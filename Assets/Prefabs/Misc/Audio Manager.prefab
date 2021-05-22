@@ -142,5 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPickup: {fileID: 8300000, guid: 6cc9c8b99800d794dbd3e31b76000786, type: 3}
   playerHit: {fileID: 8300000, guid: 9ff33c69e3a17864ea1cd5ed8ef523ee, type: 3}
-  enemyHitEffect1: {fileID: 8300000, guid: ae679e28a59b4fa4284a9184c057541c, type: 3}
+  enemyHitEffect1: {fileID: 8300000, guid: e9530e2d3f5afca40bae9fda6db33579, type: 3}
   enemyHitEffect2: {fileID: 8300000, guid: cfdc8826e45ade04d90bbe0487fc96fe, type: 3}
+  manaPickup: {fileID: 8300000, guid: f685a2ae54bde3e4d818c13ed28fe765, type: 3}
+  healthPickup: {fileID: 8300000, guid: b9704e25a389ea74c9429f976860cb8a, type: 3}

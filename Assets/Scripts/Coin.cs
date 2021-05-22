@@ -6,9 +6,12 @@ public class Coin : MonoBehaviour
 {
     public int collectibleValue;
     
-   public AudioManager audioPlay;
+   private AudioManager audioPlay;
 
-   
+    private void Start()
+    {
+        audioPlay = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
