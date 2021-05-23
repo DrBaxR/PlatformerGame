@@ -45,6 +45,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -56,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -191,6 +194,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -202,6 +207,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -297,7 +303,7 @@ MonoBehaviour:
   - {fileID: 5829809231343531703, guid: a244aa90622f3304282d037c780cfad5, type: 3}
   - {fileID: 3979364284529612345, guid: 1715877467a90994b80013aef268374d, type: 3}
   healthBar: {fileID: 156382011}
-  bleedingSprite: {fileID: 21300000, guid: b7bd448877098e544b014bcac270abbb, type: 3}
+  bleedingSprite: {fileID: 21300000, guid: 83eb2ced6a00c4341900c6a4f90b54d1, type: 3}
   dropRate: 0.25
   front: {fileID: 8224457576376675632}
 --- !u!95 &1250282202

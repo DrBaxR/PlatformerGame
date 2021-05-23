@@ -10,6 +10,7 @@ public class EnemyController1 : Enemy
     public float pushPower;
     private float nextDamage;
     public GameObject[] dropItems;
+    
     public GameObject healthBar;
     public Sprite bleedingSprite;
     public float dropRate = 3f;
@@ -17,6 +18,7 @@ public class EnemyController1 : Enemy
 
     private Vector3 localScale;
 
+    //private GameManager gm;
     private Rigidbody2D rb;
     private float maxHealth;
     private float actualHealth;
@@ -30,7 +32,7 @@ public class EnemyController1 : Enemy
         rb = GetComponent<Rigidbody2D>();
         nextDamage = Time.time;
         maxHealth = health;
-       
+     //   gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Ga>
         localScale = healthBar.transform.localScale;
     }
 
@@ -44,6 +46,7 @@ public class EnemyController1 : Enemy
         CheckforDeath();
         if (health <= 0)
         {
+            GameManager.IncrementScore(10);
             DropItem();
         }
 
