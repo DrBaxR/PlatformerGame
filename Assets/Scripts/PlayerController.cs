@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public Shaker shaker;
     public GameObject dustVFX;
+    public GameObject teleportVFX;
     
 
 
@@ -333,9 +334,11 @@ public class PlayerController : MonoBehaviour
             
             if (!Physics2D.OverlapPoint(teleportDirection, whatIsGround))
             {
+                Instantiate(teleportVFX, this.transform.position, Quaternion.identity);
                 transform.position = teleportDirection;
                 mana -= manaCost;
                 nextTeleport = Time.time + teleportCooldown;
+                Instantiate(teleportVFX, this.transform.position, Quaternion.identity);
             }
         }
     }

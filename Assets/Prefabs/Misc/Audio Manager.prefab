@@ -146,3 +146,5 @@ MonoBehaviour:
   enemyHitEffect2: {fileID: 8300000, guid: cfdc8826e45ade04d90bbe0487fc96fe, type: 3}
   manaPickup: {fileID: 8300000, guid: f685a2ae54bde3e4d818c13ed28fe765, type: 3}
   healthPickup: {fileID: 8300000, guid: b9704e25a389ea74c9429f976860cb8a, type: 3}
+  speedPickup: {fileID: 8300000, guid: 47e52b0a8dac0104d87912b33fa814fa, type: 3}
+  attackPickup: {fileID: 8300000, guid: ff23e6d254bed094794cf5a07dde6815, type: 3}

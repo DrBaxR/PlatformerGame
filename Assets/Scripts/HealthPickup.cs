@@ -17,11 +17,13 @@ public class HealthPickup : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-           // if (player.health + heal <= player.maxHealth)
-           // {
+            if (player.health < player.maxHealth)
+            // {
+            {
                 audioPlay.PlaySound("healthPickup");
-                player.health += heal;
+                player.health = Mathf.Clamp(player.health + heal, 0, player.maxHealth);
                 Destroy(gameObject);
+            }
            // }
         }
     }

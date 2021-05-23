@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip manaPickup;
     public AudioClip healthPickup;
+    public AudioClip speedPickup;
+    public AudioClip attackPickup;
+
 
     AudioSource myAudio;
 
@@ -42,6 +45,14 @@ public class AudioManager : MonoBehaviour
          if (clip == "healthPickup")
         {
             myAudio.PlayOneShot(healthPickup);
+        }
+        if (clip == "speedPickup")
+        {
+            myAudio.PlayOneShot(speedPickup);
+        }
+        if (clip == "attackPickup")
+        {
+            myAudio.PlayOneShot(attackPickup);
         }
     }
 }

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Tutorial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Other/Level9.unity
+    guid: 01474a79e0958664e83adc22d2115def
+  - enabled: 1
     path: Assets/Scenes/Other/Game Over.unity
     guid: 26ece0e9f3dc5834eafe152bebc2bd42
   - enabled: 1

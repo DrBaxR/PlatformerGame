@@ -76,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2419661, y: -1.897119}
+  m_Offset: {x: 0.2419661, y: -1.86}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.246477, y: 2.010128}
+  m_Size: {x: 1.246477, y: 3.26}
   m_EdgeRadius: 0
 --- !u!114 &3710044258740563335
 MonoBehaviour:
@@ -244,6 +244,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -255,6 +257,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -376,6 +379,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 3710044258984516116}
   shaker: {fileID: 0}
   dustVFX: {fileID: 6438190972853966881, guid: 1cced3923a672254dbfbd09426913d3d, type: 3}
+  teleportVFX: {fileID: 5507034083518126302, guid: 91f983971a585b0499a81c664b4e2e1d,
+    type: 3}
   health: 0
   mana: 0
   isDead: 0

@@ -7,23 +7,24 @@ public class PermanentBooster : MonoBehaviour
 {
 
     public int increaseDamage;
-    public EnemyController1 enemy;
-    public Text popUpText;
+    //public EnemyController1 enemy;
+    //public Text popUpText;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             
             
            
             PlayerController player = collision.GetComponent<PlayerController>();
             player.maxDamage += increaseDamage;
             player.attackDamage = player.maxDamage;
-            enemy.damageAmount += increaseDamage;
+           
+           // enemy.damageAmount += increaseDamage;
             Destroy(gameObject);
-            Time.timeScale = 1;
+           // Time.timeScale = 1;
                 
                
             
